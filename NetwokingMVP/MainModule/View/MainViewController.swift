@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    let indicator = UIActivityIndicatorView(style: .large)
     var postsTableView = UITableView()
     var presenter : MainPresenterProrocol!
     
@@ -26,6 +27,20 @@ extension MainViewController : MainViewProtocol {
     
     func success() {
         postsTableView.reloadData()
+    }
+    func startAnimation(_ bool: Bool) {
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        if bool {
+            view.addSubview(indicator)
+            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = bool
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = bool
+            indicator.heightAnchor.constraint(equalToConstant: 70).isActive = bool
+            indicator.widthAnchor.constraint(equalToConstant: 70).isActive = bool
+            indicator.startAnimating()
+        } else {
+            indicator.stopAnimating()
+        }
     }
 
 }

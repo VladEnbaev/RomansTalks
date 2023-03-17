@@ -10,6 +10,7 @@ import Foundation
 protocol MainViewProtocol : AnyObject{
     func success()
     func failure(error: Error)
+    func startAnimation(_ bool: Bool)
 }
 
 protocol MainPresenterProrocol : AnyObject {
@@ -30,6 +31,7 @@ class MainPresenter : MainPresenterProrocol {
     }
 
     func getPosts(){
+        self.view?.startAnimation(true)
         networkService.getPosts(){ [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -37,7 +39,9 @@ class MainPresenter : MainPresenterProrocol {
                 case .success(let posts):
                     self.posts = posts
                     self.view?.success()
+                    self.view?.startAnimation(false)
                 case .failure(let error):
+                    self.view?.startAnimation(false)
                     self.view?.failure(error: error)
                 }
             }
