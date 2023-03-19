@@ -18,9 +18,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let mainVC = ModelBuilder.createMainModule()
-        let navBar = UINavigationController(rootViewController: mainVC)
-        window?.rootViewController = navBar
+        
+        let tabBarController = UITabBarController()
+        let navControllerFlow1 = UINavigationController()
+        let navControllerFlow2 = UINavigationController()
+        let moduleBuilderFlow1 = ModuleBuilderFlow1()
+        let moduleBuilderFlow2 = ModuleBuilderFlow2()
+    
+        let routerFlow1 = RouterFlow1(navigationController: navControllerFlow1, moduleBuilder: moduleBuilderFlow1)
+        let routerFlow2 = RouterFlow1(navigationController: navControllerFlow2, moduleBuilder: moduleBuilderFlow2)
+        routerFlow2.initialViewController()
+        routerFlow1.initialViewController()
+        tabBarController.viewControllers = [navControllerFlow1, navControllerFlow2]
+        navControllerFlow1.tabBarItem = UITabBarItem(title: "posts",
+                                                     image: UIImage(systemName: "ellipsis"),
+                                                     tag: 1)
+        navControllerFlow2.tabBarItem = UITabBarItem(title: "profile",
+                                                     image: UIImage(systemName: "person.crop.circle"),
+                                                     tag: 2)
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
 

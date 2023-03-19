@@ -18,10 +18,12 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.text = post.title
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 0
         //body label
         bodyLabel.text = post.body
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textAlignment = .left
+        bodyLabel.numberOfLines = 0
         // user button
         userButton.setTitle("\(post.userId)", for: .normal)
         userButton.isUserInteractionEnabled = false

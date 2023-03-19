@@ -8,16 +8,48 @@
 import UIKit
 
 protocol Builder {
-    static func createMainModule() -> UIViewController
+    func createMainModule(router: RouterFlowProtocol) -> UIViewController
+    func createDetailPostModule(post: Post, router: RouterFlowProtocol) -> UIViewController
 }
 
-class ModelBuilder: Builder {
-    static func createMainModule() -> UIViewController {
+protocol TabBarBuilderProtocol {
+    func createTabBar(flow1: Builder, flow2: Builder) -> UITabBarController
+}
+
+class ModuleBuilderFlow1: Builder {
+    
+    func createMainModule(router: RouterFlowProtocol) -> UIViewController {
         let view = MainViewController()
         let netService = NetworkService()
-        let presenter = MainPresenter(view: view, networkService: netService)
+        let presenter = MainPresenter(view: view, networkService: netService, router: router)
         view.presenter = presenter
         return view
         
+    }
+    func createDetailPostModule(post: Post, router: RouterFlowProtocol) -> UIViewController {
+        let view = DetailPostViewController()
+        let netService = NetworkService()
+        let presenter = DetailPostPresenter(view: view, networkService: netService, post: post)
+        view.presenter = presenter
+        return view
+    }
+}
+
+class ModuleBuilderFlow2: Builder {
+    
+    func createMainModule(router: RouterFlowProtocol) -> UIViewController {
+        let view = MainViewController()
+        let netService = NetworkService()
+        let presenter = MainPresenter(view: view, networkService: netService, router: router)
+        view.presenter = presenter
+        return view
+        
+    }
+    func createDetailPostModule(post: Post, router: RouterFlowProtocol) -> UIViewController {
+        let view = DetailPostViewController()
+        let netService = NetworkService()
+        let presenter = DetailPostPresenter(view: view, networkService: netService, post: post)
+        view.presenter = presenter
+        return view
     }
 }

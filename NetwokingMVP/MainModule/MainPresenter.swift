@@ -8,25 +8,27 @@
 import Foundation
 
 protocol MainViewProtocol : AnyObject{
-    func success()
+    var posts : [Post]? { get set }
+    func success(with posts : [Post])
     func failure(error: Error)
     func startAnimation(_ bool: Bool)
 }
 
 protocol MainPresenterProrocol : AnyObject {
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol)
-    var posts : [Post]? { get set }
+    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterFlowProtocol)
     func getPosts()
+    func didTappedOnPost(post: Post)
 }
 
 class MainPresenter : MainPresenterProrocol {
     weak var view : MainViewProtocol?
     let networkService : NetworkServiceProtocol
-    var posts : [Post]?
+    let router : RouterFlowProtocol!
     
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
-        self.view = view
+    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterFlowProtocol) {
+        self.router = router
         self.networkService = networkService
+        self.view = view
         getPosts()
     }
 
@@ -36,9 +38,9 @@ class MainPresenter : MainPresenterProrocol {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
-                case .success(let posts):
-                    self.posts = posts
-                    self.view?.success()
+                case .success(let recievedPosts):
+                    guard let posts = recievedPosts else { return }
+                    self.view?.success(with: posts)
                     self.view?.startAnimation(false)
                 case .failure(let error):
                     self.view?.startAnimation(false)
@@ -46,6 +48,10 @@ class MainPresenter : MainPresenterProrocol {
                 }
             }
         }
+    }
+    
+    func didTappedOnPost(post: Post) {
+        router.showDetail(with: post)
     }
     
 }

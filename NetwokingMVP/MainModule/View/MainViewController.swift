@@ -11,7 +11,8 @@ class MainViewController: UIViewController {
     
     let indicator = UIActivityIndicatorView(style: .large)
     var postsTableView = UITableView()
-    var presenter : MainPresenterProrocol!
+    var presenter : MainPresenterProrocol! 
+    var posts : [Post]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +22,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController : MainViewProtocol {
+    func success(with posts: [Post]) {
+        self.posts = posts
+        self.postsTableView.reloadData()
+    }
+    
     func failure(error: Error) {
         print(error.localizedDescription)
     }
     
-    func success() {
-        postsTableView.reloadData()
-    }
     func startAnimation(_ bool: Bool) {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = true
@@ -45,15 +48,15 @@ extension MainViewController : MainViewProtocol {
 
 }
 
-extension MainViewController : UITableViewDelegate, UITableViewDataSource {
+extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.posts?.count ?? 0
+        return self.posts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCellReuseIdentifier") as? PostTableViewCell,
-           let presenterPosts = presenter?.posts{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.postCellID) as? PostTableViewCell,
+           let presenterPosts = self.posts{
             cell.configure(with: presenterPosts[indexPath.row])
             return cell
         }
@@ -64,13 +67,19 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         return view.bounds.height / 3
     }
 }
+extension MainViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailPost = posts?[indexPath.row] else { return }
+        presenter.didTappedOnPost(post: detailPost)
+    }
+}
 //MARK: - Create UI
 extension MainViewController {
     func createTableView() {
         //table view
         postsTableView.dataSource = self
         postsTableView.delegate = self
-        postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostCellReuseIdentifier")
+        postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: Resources.Identifiers.postCellID)
         self.view.addSubview(postsTableView)
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
