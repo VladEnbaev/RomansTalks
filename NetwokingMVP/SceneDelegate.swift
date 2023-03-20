@@ -18,26 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
-        let tabBarController = UITabBarController()
-        let navControllerFlow1 = UINavigationController()
-        let navControllerFlow2 = UINavigationController()
-        let moduleBuilderFlow1 = PostsFeedFlowModulesBuilder()
-        let testVC = UIViewController()
-        testVC.view.backgroundColor = .white
-        testVC.title = "profile flow"
-        let coordinatorFlow1 = PostsFeedFlowCoordinator(navigationController: navControllerFlow1, moduleBuilder: moduleBuilderFlow1)
-        coordinatorFlow1.start()
-        
-        tabBarController.viewControllers = [navControllerFlow1, navControllerFlow2]
-        navControllerFlow1.tabBarItem = UITabBarItem(title: "posts",
-                                                     image: UIImage(systemName: "ellipsis"),
-                                                     tag: 1)
-        navControllerFlow2.tabBarItem = UITabBarItem(title: "profile",
-                                                     image: UIImage(systemName: "person.crop.circle"),
-                                                     tag: 2)
-        navControllerFlow2.viewControllers = [testVC]
-        window?.rootViewController = tabBarController
+        let mainNavigationController = UINavigationController()
+        let appCoordinator = AppCoordinator(navigationController: mainNavigationController)
+        appCoordinator.start()
+        window?.rootViewController = mainNavigationController
         window?.makeKeyAndVisible()
     }
 

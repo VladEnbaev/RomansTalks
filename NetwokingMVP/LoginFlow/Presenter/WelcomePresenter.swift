@@ -9,7 +9,7 @@ import Foundation
 
 protocol WelcomePresenterProtocol : AnyObject {
     init(view: WelcomeViewProtocol, networkService: NetworkServiceProtocol, coordinator: LoginFlowCoordinatorProtocol)
-    func signInButtonTapped()
+    func signInButtonTapped(username: String?, password: String?)
 }
 
 class WelcomePresenter : WelcomePresenterProtocol {
@@ -24,7 +24,13 @@ class WelcomePresenter : WelcomePresenterProtocol {
         self.coordinator = coordinator
     }
     
-    func signInButtonTapped() {
-        coordinator.autorisationIsEnd(with: User.admin)
+    func signInButtonTapped(username: String?, password: String?) {
+        if password == "" || username == "" {
+            view.sendAlert(text: Resources.ErrorTexts.usernameEmpty)
+        } else if  password == "admin" && username == "admin"{
+            coordinator.autorisationIsEnd(with: User.admin)
+        } else {
+            view.sendAlert(text: Resources.ErrorTexts.needToRegistration)
+        }
     }
 }

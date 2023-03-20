@@ -13,29 +13,55 @@ protocol CoordinatorProtocol : AnyObject{
 }
 
 protocol AppCoordinatorProtocol : CoordinatorProtocol {
+    init (navigationController: UINavigationController)
     func showLoginFlow()
     func showTabBarFlow(with user: User)
 }
 
-class AppCoordinator {
-    func start() {
-        
-        let tabBarController = UITabBarController()
-        
-        let navControllerFlow2 = UINavigationController()
-        
-        let testVC = UIViewController()
-        testVC.view.backgroundColor = .white
-        testVC.title = "profile flow"
-        
-        
-        navControllerFlow2.tabBarItem = UITabBarItem(title: "profile",
-                                                     image: UIImage(systemName: "person.crop.circle"),
-                                                     tag: 2)
-        navControllerFlow2.viewControllers = [testVC]
+class AppCoordinator : AppCoordinatorProtocol {
+    
+    
+    var navigationController : UINavigationController!
+    
+    required init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.isNavigationBarHidden = true
     }
     
-    func createPostsFlow() {
+    
+    func showLoginFlow(){
+        let moduleBuilder = LoginFlowBuilder()
+        let coordinatorFlow1 = LoginFlowCoordinator(navigationController: navigationController, moduleBuilder: moduleBuilder, coordinator: self)
+        coordinatorFlow1.start()
+    }
+    
+    func showTabBarFlow(with user: User) {
+        let testVC = UIViewController()
+        testVC.view.backgroundColor = .white
+        testVC.title = "\(user.username)"
+        let tabBarController = UITabBarController()
+        let navControllerPostsFlow = UINavigationController()
+        let navControllerFakeFlow2 = UINavigationController()
+        let moduleBuilderPostsFlow = PostsFeedFlowModulesBuilder()
+        let coordinatorFlow1 = PostsFeedFlowCoordinator(navigationController: navControllerPostsFlow, moduleBuilder: moduleBuilderPostsFlow)
+        coordinatorFlow1.start()
+        
+        tabBarController.viewControllers = [navControllerPostsFlow, navControllerFakeFlow2]
+        navControllerPostsFlow.tabBarItem = UITabBarItem(title: "posts",
+                                                  image: UIImage(systemName: "ellipsis"),
+                                                  tag: 1)
+        navControllerFakeFlow2.tabBarItem = UITabBarItem(title: "profile",
+                                                  image: UIImage(systemName: "person.crop.circle"),
+                                                  tag: 2)
+        navControllerFakeFlow2.viewControllers = [testVC]
+        
+        navigationController.pushViewController(tabBarController, animated: true)
+    }
+    
+    func start() {
+        showLoginFlow()
         
     }
+    
+
 }
