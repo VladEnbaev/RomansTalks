@@ -15,7 +15,7 @@ protocol MainViewProtocol : AnyObject{
 }
 
 protocol MainPresenterProrocol : AnyObject {
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterFlowProtocol)
+    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: PostsFeedFlowCoordinatorProtocol)
     func getPosts()
     func didTappedOnPost(post: Post)
 }
@@ -23,9 +23,9 @@ protocol MainPresenterProrocol : AnyObject {
 class MainPresenter : MainPresenterProrocol {
     weak var view : MainViewProtocol?
     let networkService : NetworkServiceProtocol
-    let router : RouterFlowProtocol!
+    let router : PostsFeedFlowCoordinatorProtocol
     
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterFlowProtocol) {
+    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: PostsFeedFlowCoordinatorProtocol) {
         self.router = router
         self.networkService = networkService
         self.view = view

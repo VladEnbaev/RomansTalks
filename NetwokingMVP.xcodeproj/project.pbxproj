@@ -17,7 +17,7 @@
 		FF680BC129C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BC029C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift */; };
 		FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */; };
 		FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BCF29C09D71001B1F8D /* PostModel.swift */; };
-		FF680BD629C0A53D001B1F8D /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* ModuleBuilder.swift */; };
+		FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */; };
 		FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */; };
 		FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD929C0C64C001B1F8D /* NetworkService.swift */; };
 		FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */; };
@@ -26,7 +26,13 @@
 		FFF0DC8429C4F6F300658190 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8329C4F6F300658190 /* CommentsTableViewCell.swift */; };
 		FFF0DC8629C645E800658190 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8529C645E800658190 /* DetailPostTableViewCell.swift */; };
 		FFF0DC8829C646FD00658190 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8729C646FD00658190 /* Resources.swift */; };
-		FFF0DC8A29C70D2E00658190 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8929C70D2E00658190 /* Router.swift */; };
+		FFF0DC8A29C70D2E00658190 /* PostsFeedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8929C70D2E00658190 /* PostsFeedFlowCoordinator.swift */; };
+		FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC9529C792E000658190 /* AppCoordinator.swift */; };
+		FFF0DC9929C7964100658190 /* LoginFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC9829C7964100658190 /* LoginFlowCoordinator.swift */; };
+		FFF0DC9E29C7968E00658190 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC9D29C7968E00658190 /* UserModel.swift */; };
+		FFF0DCA029C796AF00658190 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC9F29C796AF00658190 /* WelcomePresenter.swift */; };
+		FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCA129C796D200658190 /* WelcomeViewController.swift */; };
+		FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCA329C7972000658190 /* LoginFlowBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +67,7 @@
 		FF680BC029C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokingMVPUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FF680BCF29C09D71001B1F8D /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
-		FF680BD529C0A53D001B1F8D /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFlowModulesBuilder.swift; sourceTree = "<group>"; };
 		FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FF680BD929C0C64C001B1F8D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +76,13 @@
 		FFF0DC8329C4F6F300658190 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		FFF0DC8529C645E800658190 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
 		FFF0DC8729C646FD00658190 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		FFF0DC8929C70D2E00658190 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		FFF0DC8929C70D2E00658190 /* PostsFeedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFeedFlowCoordinator.swift; sourceTree = "<group>"; };
+		FFF0DC9529C792E000658190 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FFF0DC9829C7964100658190 /* LoginFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowCoordinator.swift; sourceTree = "<group>"; };
+		FFF0DC9D29C7968E00658190 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FFF0DC9F29C796AF00658190 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		FFF0DCA129C796D200658190 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FFF0DCA329C7972000658190 /* LoginFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,17 +133,14 @@
 		FF680B9C29C09CCE001B1F8D /* NetwokingMVP */ = {
 			isa = PBXGroup;
 			children = (
+				FF680BAB29C09CCF001B1F8D /* Info.plist */,
 				FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */,
 				FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */,
-				FF680BD529C0A53D001B1F8D /* ModuleBuilder.swift */,
-				FFF0DC8729C646FD00658190 /* Resources.swift */,
-				FFF0DC8929C70D2E00658190 /* Router.swift */,
+				FFF0DC9529C792E000658190 /* AppCoordinator.swift */,
 				FF680BDB29C0C676001B1F8D /* ServiceLayer */,
-				FF680BD129C0A3EE001B1F8D /* MainModule */,
-				FFF0DC7929C4EF4000658190 /* DetailPostModule */,
-				FF680BA629C09CCF001B1F8D /* Assets.xcassets */,
-				FF680BA829C09CCF001B1F8D /* LaunchScreen.storyboard */,
-				FF680BAB29C09CCF001B1F8D /* Info.plist */,
+				FFF0DC9729C795E000658190 /* LoginFlow */,
+				FFF0DC8B29C724F600658190 /* PostsFlow */,
+				FFF0DC9329C78B8100658190 /* Resources */,
 			);
 			path = NetwokingMVP;
 			sourceTree = "<group>";
@@ -156,9 +165,9 @@
 		FF680BD129C0A3EE001B1F8D /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				FFF0DC9029C78B2400658190 /* Model */,
 				FF680BD229C0A3FA001B1F8D /* View */,
-				FF680BCF29C09D71001B1F8D /* PostModel.swift */,
-				FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */,
+				FFF0DC9129C78B2F00658190 /* Presenter */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -183,9 +192,9 @@
 		FFF0DC7929C4EF4000658190 /* DetailPostModule */ = {
 			isa = PBXGroup;
 			children = (
+				FFF0DC8F29C78B1900658190 /* Model */,
 				FFF0DC7E29C4EF9C00658190 /* View */,
-				FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */,
-				FFF0DC8129C4F01E00658190 /* CommentModel.swift */,
+				FFF0DC8E29C78B0700658190 /* Presenter */,
 			);
 			path = DetailPostModule;
 			sourceTree = "<group>";
@@ -198,6 +207,111 @@
 				FFF0DC8529C645E800658190 /* DetailPostTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FFF0DC8B29C724F600658190 /* PostsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC9429C78BC200658190 /* Builder */,
+				FFF0DC9229C78B6C00658190 /* Coordinator */,
+				FF680BD129C0A3EE001B1F8D /* MainModule */,
+				FFF0DC7929C4EF4000658190 /* DetailPostModule */,
+			);
+			path = PostsFlow;
+			sourceTree = "<group>";
+		};
+		FFF0DC8E29C78B0700658190 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FFF0DC8F29C78B1900658190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC8129C4F01E00658190 /* CommentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FFF0DC9029C78B2400658190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BCF29C09D71001B1F8D /* PostModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FFF0DC9129C78B2F00658190 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FFF0DC9229C78B6C00658190 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC8929C70D2E00658190 /* PostsFeedFlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FFF0DC9329C78B8100658190 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BA829C09CCF001B1F8D /* LaunchScreen.storyboard */,
+				FFF0DC8729C646FD00658190 /* Resources.swift */,
+				FF680BA629C09CCF001B1F8D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FFF0DC9429C78BC200658190 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		FFF0DC9729C795E000658190 /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC9829C7964100658190 /* LoginFlowCoordinator.swift */,
+				FFF0DCA329C7972000658190 /* LoginFlowBuilder.swift */,
+				FFF0DC9C29C7966100658190 /* Model */,
+				FFF0DC9B29C7965700658190 /* Presenter */,
+				FFF0DC9A29C7964F00658190 /* View */,
+			);
+			path = LoginFlow;
+			sourceTree = "<group>";
+		};
+		FFF0DC9A29C7964F00658190 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DCA129C796D200658190 /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFF0DC9B29C7965700658190 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC9F29C796AF00658190 /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FFF0DC9C29C7966100658190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC9D29C7968E00658190 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,21 +444,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF0DC9929C7964100658190 /* LoginFlowCoordinator.swift in Sources */,
 				FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */,
 				FFF0DC8629C645E800658190 /* DetailPostTableViewCell.swift in Sources */,
 				FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */,
 				FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */,
+				FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */,
 				FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */,
 				FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */,
+				FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */,
 				FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */,
-				FFF0DC8A29C70D2E00658190 /* Router.swift in Sources */,
+				FFF0DC8A29C70D2E00658190 /* PostsFeedFlowCoordinator.swift in Sources */,
 				FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */,
+				FFF0DCA029C796AF00658190 /* WelcomePresenter.swift in Sources */,
 				FFF0DC8429C4F6F300658190 /* CommentsTableViewCell.swift in Sources */,
 				FFF0DC8829C646FD00658190 /* Resources.swift in Sources */,
 				FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */,
 				FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */,
 				FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */,
-				FF680BD629C0A53D001B1F8D /* ModuleBuilder.swift in Sources */,
+				FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */,
+				FFF0DC9E29C7968E00658190 /* UserModel.swift in Sources */,
+				FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

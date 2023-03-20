@@ -22,13 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         let navControllerFlow1 = UINavigationController()
         let navControllerFlow2 = UINavigationController()
-        let moduleBuilderFlow1 = ModuleBuilderFlow1()
-        let moduleBuilderFlow2 = ModuleBuilderFlow2()
-    
-        let routerFlow1 = RouterFlow1(navigationController: navControllerFlow1, moduleBuilder: moduleBuilderFlow1)
-        let routerFlow2 = RouterFlow1(navigationController: navControllerFlow2, moduleBuilder: moduleBuilderFlow2)
-        routerFlow2.initialViewController()
-        routerFlow1.initialViewController()
+        let moduleBuilderFlow1 = PostsFeedFlowModulesBuilder()
+        let testVC = UIViewController()
+        testVC.view.backgroundColor = .white
+        testVC.title = "profile flow"
+        let coordinatorFlow1 = PostsFeedFlowCoordinator(navigationController: navControllerFlow1, moduleBuilder: moduleBuilderFlow1)
+        coordinatorFlow1.start()
+        
         tabBarController.viewControllers = [navControllerFlow1, navControllerFlow2]
         navControllerFlow1.tabBarItem = UITabBarItem(title: "posts",
                                                      image: UIImage(systemName: "ellipsis"),
@@ -36,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navControllerFlow2.tabBarItem = UITabBarItem(title: "profile",
                                                      image: UIImage(systemName: "person.crop.circle"),
                                                      tag: 2)
+        navControllerFlow2.viewControllers = [testVC]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
