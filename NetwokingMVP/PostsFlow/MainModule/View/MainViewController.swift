@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     let indicator = UIActivityIndicatorView(style: .large)
     var postsTableView = UITableView()
-    var presenter : MainPresenterProrocol! 
+    var presenter : MainPresenterProrocol!
     var posts : [Post]?
     
     override func viewDidLoad() {

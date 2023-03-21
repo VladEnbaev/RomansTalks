@@ -10,8 +10,7 @@ import UIKit
 
 protocol LoginFlowBuilderProtocol {
     func createWelcomeModule(coordinator : LoginFlowCoordinatorProtocol) -> UIViewController
-//    func createAccountCreationModule(coordinator: LoginFlowCoordinatorProtocol)
-//    func createAdditionalInfoModule(coordinator: LoginFlowCoordinatorProtocol)
+    func createRegistrationModule(coordinator: LoginFlowCoordinatorProtocol) -> UIViewController
 }
 
 class LoginFlowBuilder : LoginFlowBuilderProtocol {
@@ -19,6 +18,14 @@ class LoginFlowBuilder : LoginFlowBuilderProtocol {
         let view = WelcomeViewController()
         let netService = NetworkService()
         let presenter = WelcomePresenter(view: view, networkService: netService, coordinator: coordinator)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createRegistrationModule(coordinator: LoginFlowCoordinatorProtocol) -> UIViewController {
+        let view = RegistrationViewController()
+        let netService = NetworkService()
+        let presenter = RegistrationPresenter(view: view, networkService: netService, coordinator: coordinator)
         view.presenter = presenter
         return view
     }

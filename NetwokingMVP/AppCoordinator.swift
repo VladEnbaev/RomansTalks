@@ -37,7 +37,7 @@ class AppCoordinator : AppCoordinatorProtocol {
     
     func showTabBarFlow(with user: User) {
         let testVC = UIViewController()
-        testVC.view.backgroundColor = .white
+        testVC.view.backgroundColor = .systemBackground
         testVC.title = "\(user.username)"
         let tabBarController = UITabBarController()
         let navControllerPostsFlow = UINavigationController()
@@ -55,7 +55,8 @@ class AppCoordinator : AppCoordinatorProtocol {
                                                   tag: 2)
         navControllerFakeFlow2.viewControllers = [testVC]
         
-        navigationController.pushViewController(tabBarController, animated: true)
+        
+        navigationController.viewControllers = [tabBarController]
     }
     
     func start() {

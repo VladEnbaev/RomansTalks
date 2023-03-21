@@ -12,11 +12,15 @@ protocol LoginFlowCoordinatorProtocol : CoordinatorProtocol{
     var navigationController : UINavigationController { get set }
     var moduleBuilder : LoginFlowBuilderProtocol { get set }
     var coordinator : AppCoordinatorProtocol { get set }
+    
     init (navigationController: UINavigationController, moduleBuilder: LoginFlowBuilderProtocol, coordinator: AppCoordinatorProtocol)
-    func autorisationIsEnd(with user: User)
+    
+    func showRegistration(isBarHidden: Bool)
+    func showTabBar(with user: User)
 }
 
 class LoginFlowCoordinator : LoginFlowCoordinatorProtocol {
+    
     var navigationController: UINavigationController
     
     var moduleBuilder: LoginFlowBuilderProtocol
@@ -29,14 +33,20 @@ class LoginFlowCoordinator : LoginFlowCoordinatorProtocol {
         self.coordinator = coordinator
     }
     
-    
-    func autorisationIsEnd(with user: User) {
-        coordinator.showTabBarFlow(with: user)
-    }
-    
     func start() {
         let welcomeModule = moduleBuilder.createWelcomeModule(coordinator: self)
         navigationController.viewControllers = [welcomeModule]
+    }
+    
+    func showTabBar(with user: User) {
+        self.navigationController.isNavigationBarHidden = true
+        coordinator.showTabBarFlow(with: user)
+    }
+    
+    func showRegistration(isBarHidden: Bool) {
+        self.navigationController.isNavigationBarHidden = isBarHidden
+        let registrationModule = moduleBuilder.createRegistrationModule(coordinator: self)
+        navigationController.pushViewController(registrationModule, animated: true)
     }
     
     
