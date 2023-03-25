@@ -38,7 +38,6 @@ class NetworkService : NetworkServiceProtocol {
             } else {
                 do{
                     let posts = try JSONDecoder().decode([T].self, from: data!)
-                    print("url session with: \(url.absoluteString) ended")
                     completionHandler(.success(posts))
                 } catch {
                     completionHandler(.failure(error))
@@ -60,7 +59,6 @@ class NetworkService : NetworkServiceProtocol {
                     completionHandler(.failure(error))
                 }
             }
-            print("url session with: \(urlString) ended")
         }.resume()
     }
 }

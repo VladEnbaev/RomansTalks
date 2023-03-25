@@ -20,6 +20,9 @@
 		FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */; };
 		FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */; };
 		FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD929C0C64C001B1F8D /* NetworkService.swift */; };
+		FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */; };
+		FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881A29CF810B0045F449 /* BaseViewController.swift */; };
+		FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */; };
 		FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */; };
 		FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */; };
 		FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8129C4F01E00658190 /* CommentModel.swift */; };
@@ -72,6 +75,9 @@
 		FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFlowModulesBuilder.swift; sourceTree = "<group>"; };
 		FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FF680BD929C0C64C001B1F8D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toggle.swift"; sourceTree = "<group>"; };
+		FFA9881A29CF810B0045F449 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+setup.swift"; sourceTree = "<group>"; };
 		FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostPresenter.swift; sourceTree = "<group>"; };
 		FFF0DC8129C4F01E00658190 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -137,14 +143,14 @@
 		FF680B9C29C09CCE001B1F8D /* NetwokingMVP */ = {
 			isa = PBXGroup;
 			children = (
-				FF680BAB29C09CCF001B1F8D /* Info.plist */,
 				FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */,
 				FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */,
 				FFF0DC9529C792E000658190 /* AppCoordinator.swift */,
 				FF680BDB29C0C676001B1F8D /* ServiceLayer */,
 				FFF0DC9729C795E000658190 /* LoginFlow */,
 				FFF0DC8B29C724F600658190 /* PostsFlow */,
-				FFF0DC9329C78B8100658190 /* Resources */,
+				FFF0DC9329C78B8100658190 /* Helpers */,
+				FFA9881429CF71BF0045F449 /* SupportingFiles */,
 			);
 			path = NetwokingMVP;
 			sourceTree = "<group>";
@@ -179,8 +185,8 @@
 		FF680BD229C0A3FA001B1F8D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FFA9881629CF7E4C0045F449 /* TableViewCell */,
 				FF680BA129C09CCE001B1F8D /* MainViewController.swift */,
-				FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +197,50 @@
 				FF680BD929C0C64C001B1F8D /* NetworkService.swift */,
 			);
 			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		FFA9880E29CF53030045F449 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */,
+				FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FFA9881429CF71BF0045F449 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BAB29C09CCF001B1F8D /* Info.plist */,
+				FF680BA829C09CCF001B1F8D /* LaunchScreen.storyboard */,
+				FF680BA629C09CCF001B1F8D /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FFA9881529CF71F60045F449 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0DC8529C645E800658190 /* DetailPostTableViewCell.swift */,
+				FFF0DC8329C4F6F300658190 /* CommentsTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		FFA9881629CF7E4C0045F449 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		FFA9881729CF80840045F449 /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				FFA9881A29CF810B0045F449 /* BaseViewController.swift */,
+			);
+			path = BaseViews;
 			sourceTree = "<group>";
 		};
 		FFF0DC7929C4EF4000658190 /* DetailPostModule */ = {
@@ -206,9 +256,8 @@
 		FFF0DC7E29C4EF9C00658190 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FFA9881529CF71F60045F449 /* TableViewCell */,
 				FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */,
-				FFF0DC8329C4F6F300658190 /* CommentsTableViewCell.swift */,
-				FFF0DC8529C645E800658190 /* DetailPostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,14 +313,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		FFF0DC9329C78B8100658190 /* Resources */ = {
+		FFF0DC9329C78B8100658190 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FF680BA829C09CCF001B1F8D /* LaunchScreen.storyboard */,
+				FFA9881729CF80840045F449 /* BaseViews */,
+				FFA9880E29CF53030045F449 /* Extensions */,
 				FFF0DC8729C646FD00658190 /* Resources.swift */,
-				FF680BA629C09CCF001B1F8D /* Assets.xcassets */,
 			);
-			path = Resources;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FFF0DC9429C78BC200658190 /* Builder */ = {
@@ -501,7 +550,9 @@
 				FFF0DC9929C7964100658190 /* LoginFlowCoordinator.swift in Sources */,
 				FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */,
 				FFF0DC8629C645E800658190 /* DetailPostTableViewCell.swift in Sources */,
+				FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */,
 				FFF0DCAF29CA03F100658190 /* RegistrationPresenter.swift in Sources */,
+				FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */,
 				FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */,
 				FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */,
 				FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */,
@@ -517,6 +568,7 @@
 				FFF0DC8829C646FD00658190 /* Resources.swift in Sources */,
 				FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */,
 				FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */,
+				FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */,
 				FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */,
 				FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */,
 				FFF0DC9E29C7968E00658190 /* UserModel.swift in Sources */,
@@ -691,7 +743,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T574RGJCUB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetwokingMVP/Info.plist;
+				INFOPLIST_FILE = NetwokingMVP/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -719,7 +771,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T574RGJCUB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetwokingMVP/Info.plist;
+				INFOPLIST_FILE = NetwokingMVP/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

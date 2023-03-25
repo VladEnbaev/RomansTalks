@@ -40,6 +40,5 @@ class CommentsTableViewCell: UITableViewCell {
         stackView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         stackView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.9).isActive = true
-        
     }
 }

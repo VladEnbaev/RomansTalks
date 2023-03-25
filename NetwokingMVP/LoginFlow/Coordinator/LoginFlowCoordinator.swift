@@ -39,7 +39,6 @@ class LoginFlowCoordinator : LoginFlowCoordinatorProtocol {
     }
     
     func showTabBar(with user: User) {
-        self.navigationController.isNavigationBarHidden = true
         coordinator.showTabBarFlow(with: user)
     }
     
