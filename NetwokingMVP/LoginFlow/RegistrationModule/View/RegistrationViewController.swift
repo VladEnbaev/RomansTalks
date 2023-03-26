@@ -35,18 +35,27 @@ class RegistrationViewController: BaseViewController {
         
     }
     override func constraintViews() {
+        
         let textFieldsStackView = UIStackView(arrangedSubviews: [usernameTextField, emailTextField, passwordTextField, conformPasswordTextField])
-        textFieldsStackView.setupVertical(spacing: 30, distribution: .fillProportionally)
+        textFieldsStackView.setupVertical(spacing: 30, distribution: .fillEqually)
+        textFieldsStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        //stack view
-        let stackView = UIStackView(arrangedSubviews: [textFieldsStackView, createAccountButton])
-        stackView.setupVertical(spacing: 50, distribution: .equalSpacing)
-        self.view.addSubview(stackView)
+        view.addSubview(textFieldsStackView)
+        view.addSubview(createAccountButton)
         
-        stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9).isActive = true
-        stackView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.7).isActive = true
+        NSLayoutConstraint.activate([
+            textFieldsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            textFieldsStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            textFieldsStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+            createAccountButton.heightAnchor.constraint(equalToConstant: 50),
+            createAccountButton.centerXAnchor.constraint(equalTo: textFieldsStackView.centerXAnchor),
+            createAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            createAccountButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85)
+//            createAccountButton.centerXAnchor.constraint(equalTo: textFieldsStackView.centerXAnchor),
+//            createAccountButton.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: 40),
+//            createAccountButton.widthAnchor.constraint(equalTo: textFieldsStackView.widthAnchor, multiplier: 0.95)
+        ])
     }
 }
 

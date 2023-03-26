@@ -23,6 +23,8 @@
 		FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */; };
 		FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881A29CF810B0045F449 /* BaseViewController.swift */; };
 		FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */; };
+		FFA9882229D07B2D0045F449 /* AdditionalInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9882129D07B2D0045F449 /* AdditionalInfoPresenter.swift */; };
+		FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */; };
 		FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */; };
 		FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */; };
 		FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8129C4F01E00658190 /* CommentModel.swift */; };
@@ -78,6 +80,8 @@
 		FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toggle.swift"; sourceTree = "<group>"; };
 		FFA9881A29CF810B0045F449 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+setup.swift"; sourceTree = "<group>"; };
+		FFA9882129D07B2D0045F449 /* AdditionalInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoPresenter.swift; sourceTree = "<group>"; };
+		FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
 		FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostPresenter.swift; sourceTree = "<group>"; };
 		FFF0DC8129C4F01E00658190 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -243,6 +247,31 @@
 			path = BaseViews;
 			sourceTree = "<group>";
 		};
+		FFA9881E29D07AB50045F449 /* AdditionalInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				FFA9882029D07B100045F449 /* Presenter */,
+				FFA9881F29D07AF90045F449 /* View */,
+			);
+			path = AdditionalInfoModule;
+			sourceTree = "<group>";
+		};
+		FFA9881F29D07AF90045F449 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFA9882029D07B100045F449 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FFA9882129D07B2D0045F449 /* AdditionalInfoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		FFF0DC7929C4EF4000658190 /* DetailPostModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +365,7 @@
 			children = (
 				FFF0DCA529C8E51700658190 /* Coordinator */,
 				FFF0DCA629C8E52600658190 /* Builder */,
+				FFA9881E29D07AB50045F449 /* AdditionalInfoModule */,
 				FFF0DCA829CA037700658190 /* RegistrationModule */,
 				FFF0DCA729C8E54100658190 /* WelcomeModule */,
 			);
@@ -572,7 +602,9 @@
 				FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */,
 				FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */,
 				FFF0DC9E29C7968E00658190 /* UserModel.swift in Sources */,
+				FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */,
 				FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */,
+				FFA9882229D07B2D0045F449 /* AdditionalInfoPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

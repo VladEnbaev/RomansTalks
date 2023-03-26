@@ -45,7 +45,8 @@ class WelcomeViewController: BaseViewController {
         textFieldsStackView.spacing = 10
         
         let buttonStackView = UIStackView(arrangedSubviews: [signInButton, registrationButton])
-        buttonStackView.setupVertical(spacing: 10, distribution: .fillEqually)
+        
+        buttonStackView.setupVertical(spacing: -10, distribution: .fillProportionally)
         
         //stack view
         let stackView = UIStackView(arrangedSubviews: [welcomeLabel, textFieldsStackView, buttonStackView])
@@ -56,6 +57,7 @@ class WelcomeViewController: BaseViewController {
         
         //adding constraints
         self.view.addSubview(stackView)
+        signInButton.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
         stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.7).isActive = true
