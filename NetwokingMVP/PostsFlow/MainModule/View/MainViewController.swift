@@ -16,7 +16,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.largeContentTitle = "Posts Feed"
+        self.view.backgroundColor = .systemBackground
         createTableView()
     }
 }
@@ -28,7 +29,12 @@ extension MainViewController : MainViewProtocol {
     }
     
     func failure(error: Error) {
-        print(error.localizedDescription)
+        let alert = UIAlertController(title: "ops",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
     }
     
     func startAnimation(_ bool: Bool) {

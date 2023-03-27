@@ -31,18 +31,44 @@ import Foundation
 //    }
 
 struct Geo: Codable {
-    static let adminGeo = Geo(lat: "", lng: "")
+    
     var lat: String
     var lng: String
+    
+    init(lat: String, lng: String) {
+        self.lat = lat
+        self.lng = lng
+    }
+    
+    init() {
+        self.lat = ""
+        self.lng = ""
+    }
 }
 
 struct Address : Codable {
-    static let adminAdress = Address(street: "", suite: "", city: "", zipcode: "", geo: Geo.adminGeo)
+    
     let street: String
     let suite: String
     let city : String
     let zipcode : String
     let geo : Geo
+    
+    init(street: String, suite: String, city: String, zipcode: String, geo: Geo) {
+        self.street = street
+        self.suite = suite
+        self.city = city
+        self.zipcode = zipcode
+        self.geo = geo
+    }
+    
+    init() {
+        self.street = ""
+        self.suite = ""
+        self.city = ""
+        self.zipcode = ""
+        self.geo = Geo()
+    }
 }
 
 struct Company : Codable {
@@ -50,11 +76,22 @@ struct Company : Codable {
     let name : String
     let catchPrase : String
     let bs : String
+    
+    init(name: String, catchPrase: String, bs: String) {
+        self.name = name
+        self.catchPrase = catchPrase
+        self.bs = bs
+    }
+    init() {
+        self.name = ""
+        self.catchPrase = ""
+        self.bs = ""
+    }
 }
 
 struct User : Codable {
     
-    static let admin = User(id: 101, name: "vlad", username: "gradskiy", email: "", address: Address.adminAdress, phone: "89829219421", website: "gradskiy.com", company: Company.adminCompany)
+    static let admin = User(id: 101, name: "vlad", username: "gradskiy", email: "", address: Address(), phone: "89829219421", website: "gradskiy.com", company: Company())
     
     let id : Int
     let name : String
@@ -64,4 +101,28 @@ struct User : Codable {
     let phone : String
     let website : String
     let company : Company
+    
+    init(id: Int, name: String, username: String, email: String, address: Address, phone: String, website: String, company: Company) {
+        self.id = id
+        self.name = name
+        self.username = username
+        self.email = email
+        self.address = address
+        self.phone = phone
+        self.website = website
+        self.company = company
+    }
+    
+    init() {
+        self.id = 0
+        self.name = ""
+        self.username = ""
+        self.email = ""
+        self.address = Address()
+        self.phone = ""
+        self.website = ""
+        self.company = Company()
+    }
+    
+    
 }

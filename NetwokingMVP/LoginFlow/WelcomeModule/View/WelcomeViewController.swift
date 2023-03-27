@@ -9,7 +9,7 @@ import UIKit
 
 protocol WelcomeViewProtocol : AnyObject{
     var presenter : WelcomePresenterProtocol! { get set }
-    func sendAlert(text: String)
+    func showAlert(text: String)
 }
 
 class WelcomeViewController: BaseViewController {
@@ -64,22 +64,10 @@ class WelcomeViewController: BaseViewController {
         stackView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
     }
     
-    @objc func registrationButtonTapped(){
-        presenter.registrationButtonTapped()
-    }
-    
-    @objc func signInButtonTapped(){
-        presenter.signInButtonTapped(username: usernameTextField.text,
-                                     password: passwordTextField.text)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
 }
 
 extension WelcomeViewController : WelcomeViewProtocol {
-    func sendAlert(text: String) {
+    func showAlert(text: String) {
         let alert = UIAlertController(title: "ops",
                                       message: text,
                                       preferredStyle: .alert)
@@ -89,6 +77,21 @@ extension WelcomeViewController : WelcomeViewProtocol {
     }
 }
 
+//MARK: - Actions
+extension WelcomeViewController {
+    @objc func registrationButtonTapped(){
+        presenter.registrationButtonTapped()
+    }
+    
+    @objc func signInButtonTapped(){
+        presenter.signInButtonTapped(username: usernameTextField.text ?? "",
+                                     password: passwordTextField.text ?? "")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
 // MARK: - Create UI
 extension WelcomeViewController {
     func setupSignInButton(button: UIButton) {

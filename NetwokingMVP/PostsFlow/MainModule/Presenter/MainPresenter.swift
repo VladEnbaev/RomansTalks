@@ -37,6 +37,7 @@ class MainPresenter : MainPresenterProrocol {
         networkService.getPosts(){ [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                print("ended")
                 switch result {
                 case .success(let recievedPosts):
                     guard let posts = recievedPosts else { return }

@@ -15,7 +15,9 @@ enum Resources {
         static let commentCellID = "CommentCellReuseIdentifier"
     }
     enum ErrorTexts {
-        static let usernameEmpty = "username and/or password is empty"
+        static let usernameEmpty = "username is empty"
+        static let passwordEmpty = "password is empty"
         static let needToRegistration = "failed to find such user. you may not have registered yet"
+        static let emailEmpty = "email is empty"
     }
 }

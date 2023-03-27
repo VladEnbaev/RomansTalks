@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AdditionalInfoPresenterProtocol : AnyObject{
-    init(view: RegistrationViewProtocol, networkService: NetworkServiceProtocol, coordinator: LoginFlowCoordinatorProtocol)
+    init(view: AdditionalInfoViewProtocol, networkService: NetworkServiceProtocol, coordinator: LoginFlowCoordinatorProtocol)
 }
 
 class AdditionalInfoPresenter : AdditionalInfoPresenterProtocol {

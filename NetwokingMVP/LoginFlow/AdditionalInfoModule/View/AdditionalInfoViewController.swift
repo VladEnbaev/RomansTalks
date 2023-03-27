@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AdditionalInfoViewProtocol : AnyObject{
-    var presenter : RegistrationPresenterProtocol! { get set }
+    var presenter : AdditionalInfoPresenterProtocol! { get set }
 }
 
 

@@ -9,6 +9,8 @@ import UIKit
 
 protocol RegistrationViewProtocol : AnyObject{
     var presenter : RegistrationPresenterProtocol! { get set }
+    
+    func showAlert(text: String)
 }
 
 class RegistrationViewController: BaseViewController {
@@ -52,14 +54,34 @@ class RegistrationViewController: BaseViewController {
             createAccountButton.centerXAnchor.constraint(equalTo: textFieldsStackView.centerXAnchor),
             createAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             createAccountButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85)
-//            createAccountButton.centerXAnchor.constraint(equalTo: textFieldsStackView.centerXAnchor),
-//            createAccountButton.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: 40),
-//            createAccountButton.widthAnchor.constraint(equalTo: textFieldsStackView.widthAnchor, multiplier: 0.95)
         ])
     }
 }
 
 extension RegistrationViewController : RegistrationViewProtocol {
+    func showAlert(text: String) {
+        let alert = UIAlertController(title: "ops",
+                                      message: text,
+                                      preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
+}
+
+//MARK: - Actions
+extension RegistrationViewController {
+    @objc func createAccountButtonTapped() {
+        presenter.set(username: usernameTextField.text ?? "",
+                      email: emailTextField.text ?? "",
+                      password: passwordTextField.text ?? "",
+                      secondPassword: conformPasswordTextField.text ?? "")
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }
 
@@ -69,10 +91,11 @@ extension RegistrationViewController {
         button.layer.cornerRadius = 5
         button.backgroundColor = .tintColor
         button.setTitleColor(.systemBackground, for: .normal)
+        button.setTitleColor(button.backgroundColor, for: .highlighted)
         button.setTitle("CREATE", for: .normal)
         button.setTitle("CREATE", for: .highlighted)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        //button.addTarget(self, action: #selector(createAccountButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(createAccountButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
     }
     func setupPasswordTextField(textField: UITextField) {
@@ -88,6 +111,7 @@ extension RegistrationViewController {
         textField.isSecureTextEntry = true
         textField.createPasswordToggle()
         textField.borderStyle = .roundedRect
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -100,5 +124,18 @@ extension RegistrationViewController {
         textField.placeholder = "email"
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension RegistrationViewController : UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if conformPasswordTextField.text != passwordTextField.text {
+            conformPasswordTextField.backgroundColor = .systemRed
+            createAccountButton.isEnabled = false
+        } else {
+            conformPasswordTextField.backgroundColor = .clear
+            createAccountButton.isEnabled = true
+
+        }
     }
 }

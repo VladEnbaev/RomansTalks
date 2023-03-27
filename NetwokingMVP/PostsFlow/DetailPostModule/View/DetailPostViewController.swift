@@ -31,6 +31,12 @@ extension DetailPostViewController : DetailPostViewProtocol {
     }
     
     func commentsGettingError(error: Error) {
+        let alert = UIAlertController(title: "ops",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
         print(error.localizedDescription)
     }
     
