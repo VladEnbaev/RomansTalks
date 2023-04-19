@@ -33,9 +33,12 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
             view.showAlert(text: Resources.ErrorTexts.emailEmpty)
         } else if password.isEmpty{
             view.showAlert(text: Resources.ErrorTexts.passwordEmpty)
+        } else {
+            user.email = email
+            user.username = username
+            coordinator.showTabBar(with: user)
         }
         
-//        user.email = email
-//        user.username = username
+        
     }
 }
