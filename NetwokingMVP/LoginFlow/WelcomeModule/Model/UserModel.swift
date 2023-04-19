@@ -95,8 +95,8 @@ struct User : Codable {
     
     let id : Int
     let name : String
-    let username : String
-    let email : String
+    var username : String
+    var email : String
     let address : Address
     let phone : String
     let website : String

@@ -45,6 +45,8 @@
 		FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCA329C7972000658190 /* LoginFlowBuilder.swift */; };
 		FFF0DCAC29CA03CB00658190 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCAB29CA03CB00658190 /* RegistrationViewController.swift */; };
 		FFF0DCAF29CA03F100658190 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCAE29CA03F100658190 /* RegistrationPresenter.swift */; };
+		FFF43ADA29F057B300342DF1 /* AccountTopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */; };
+		FFF43ADF29F079A700342DF1 /* AccountFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		FFF0DCA329C7972000658190 /* LoginFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowBuilder.swift; sourceTree = "<group>"; };
 		FFF0DCAB29CA03CB00658190 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FFF0DCAE29CA03F100658190 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTopInfoView.swift; sourceTree = "<group>"; };
+		FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlowBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +157,6 @@
 				2E901179F224F38E12402CF0 /* Pods-NetwokingMVPTests.debug.xcconfig */,
 				F8567E6BDC679B32959281ED /* Pods-NetwokingMVPTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -339,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */,
+				FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +350,8 @@
 		FFD38D8229F03A7D00AF8F91 /* AccountFlow */ = {
 			isa = PBXGroup;
 			children = (
+				FFF43ADD29F0798100342DF1 /* Coordinator */,
+				FFF43ADC29F0797300342DF1 /* Builder */,
 				FFD38D7B29F0389600AF8F91 /* AccountModule */,
 			);
 			path = AccountFlow;
@@ -524,6 +530,21 @@
 				FFF0DCAE29CA03F100658190 /* RegistrationPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FFF43ADC29F0797300342DF1 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		FFF43ADD29F0798100342DF1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -768,6 +789,7 @@
 				FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */,
 				FFF0DC8629C645E800658190 /* DetailPostTableViewCell.swift in Sources */,
 				FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */,
+				FFF43ADA29F057B300342DF1 /* AccountTopInfoView.swift in Sources */,
 				FFF0DCAF29CA03F100658190 /* RegistrationPresenter.swift in Sources */,
 				FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */,
 				FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */,
@@ -794,6 +816,7 @@
 				FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */,
 				FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */,
 				FFA9882229D07B2D0045F449 /* AdditionalInfoPresenter.swift in Sources */,
+				FFF43ADF29F079A700342DF1 /* AccountFlowBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

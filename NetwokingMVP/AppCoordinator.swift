@@ -60,7 +60,14 @@ class AppCoordinator : AppCoordinatorProtocol {
     }
     
     func start() {
-        showLoginFlow()
+//        showLoginFlow()
+        var user = User()
+        user.email = "recieved email"
+        user.username = "vladislav"
+        let view = AccountViewController()
+        let presenter = AccountPresenter(user: user, view: view, networkService: NetworkService(), coordinator: self)
+        view.presenter = presenter
+        navigationController.viewControllers = [view]
         
     }
     
