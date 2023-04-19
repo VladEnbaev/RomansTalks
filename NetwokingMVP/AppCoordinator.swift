@@ -31,32 +31,14 @@ class AppCoordinator : AppCoordinatorProtocol {
     
     func showLoginFlow(){
         let moduleBuilder = LoginFlowBuilder()
-        let coordinatorFlow1 = LoginFlowCoordinator(navigationController: navigationController, moduleBuilder: moduleBuilder, coordinator: self)
-        coordinatorFlow1.start()
+        let coordinatorLoginFlow = LoginFlowCoordinator(navigationController: navigationController, moduleBuilder: moduleBuilder, coordinator: self)
+        coordinatorLoginFlow.start()
     }
     
     func showTabBarFlow(with user: User) {
-        let testVC = UIViewController()
-        testVC.view.backgroundColor = .systemBackground
-        testVC.title = "\(user.username)"
-        let tabBarController = UITabBarController()
-        let navControllerPostsFlow = UINavigationController()
-        let navControllerFakeFlow2 = UINavigationController()
-        let moduleBuilderPostsFlow = PostsFeedFlowModulesBuilder()
-        let coordinatorFlow1 = PostsFeedFlowCoordinator(navigationController: navControllerPostsFlow, moduleBuilder: moduleBuilderPostsFlow)
-        coordinatorFlow1.start()
-        
-        tabBarController.viewControllers = [navControllerPostsFlow, navControllerFakeFlow2]
-        navControllerPostsFlow.tabBarItem = UITabBarItem(title: "posts",
-                                                  image: UIImage(systemName: "ellipsis"),
-                                                  tag: 1)
-        navControllerFakeFlow2.tabBarItem = UITabBarItem(title: "profile",
-                                                  image: UIImage(systemName: "person.crop.circle"),
-                                                  tag: 2)
-        navControllerFakeFlow2.viewControllers = [testVC]
-        
-        
-        navigationController.viewControllers = [tabBarController]
+        let tabBarBuilder = TabBarBuilder()
+        let tabBar = tabBarBuilder.createTabBar(user: user, coordinator: self)
+        self.navigationController.viewControllers = [tabBar]
     }
     
     func start() {

@@ -48,6 +48,8 @@
 		FFF43ADA29F057B300342DF1 /* AccountTopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */; };
 		FFF43ADF29F079A700342DF1 /* AccountFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */; };
 		FFF43AE129F079F800342DF1 /* AccountFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AE029F079F800342DF1 /* AccountFlowCoordinator.swift */; };
+		FFF43AE329F07CAE00342DF1 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AE229F07CAE00342DF1 /* TabBarBuilder.swift */; };
+		FFF43AE629F07D9100342DF1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AE529F07D9100342DF1 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTopInfoView.swift; sourceTree = "<group>"; };
 		FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlowBuilder.swift; sourceTree = "<group>"; };
 		FFF43AE029F079F800342DF1 /* AccountFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlowCoordinator.swift; sourceTree = "<group>"; };
+		FFF43AE229F07CAE00342DF1 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
+		FFF43AE529F07D9100342DF1 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,7 @@
 				FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */,
 				FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */,
 				FFF0DC9529C792E000658190 /* AppCoordinator.swift */,
+				FFF43AE429F07D3200342DF1 /* TabBar */,
 				FF680BDB29C0C676001B1F8D /* ServiceLayer */,
 				FFD38D8229F03A7D00AF8F91 /* AccountFlow */,
 				FFF0DC9729C795E000658190 /* LoginFlow */,
@@ -550,6 +555,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		FFF43AE429F07D3200342DF1 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FFF43AE229F07CAE00342DF1 /* TabBarBuilder.swift */,
+				FFF43AE529F07D9100342DF1 /* MainTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -797,6 +811,7 @@
 				FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */,
 				FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */,
 				FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */,
+				FFF43AE329F07CAE00342DF1 /* TabBarBuilder.swift in Sources */,
 				FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */,
 				FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */,
 				FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */,
@@ -804,6 +819,7 @@
 				FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */,
 				FFF0DC8A29C70D2E00658190 /* PostsFeedFlowCoordinator.swift in Sources */,
 				FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */,
+				FFF43AE629F07D9100342DF1 /* MainTabBarController.swift in Sources */,
 				FFF0DCA029C796AF00658190 /* WelcomePresenter.swift in Sources */,
 				FFD38D8129F0391400AF8F91 /* AccountPresenter.swift in Sources */,
 				FFF0DC8429C4F6F300658190 /* CommentsTableViewCell.swift in Sources */,
