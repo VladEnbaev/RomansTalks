@@ -15,7 +15,6 @@ protocol LoginFlowBuilderProtocol {
 }
 
 class LoginFlowBuilder : LoginFlowBuilderProtocol {
-    //hi
     func createWelcomeModule(coordinator: LoginFlowCoordinatorProtocol) -> UIViewController{
         let view = WelcomeViewController()
         let netService = NetworkService()

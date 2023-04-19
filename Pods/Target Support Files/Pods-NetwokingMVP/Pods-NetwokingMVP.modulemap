@@ -1,0 +1,6 @@
+framework module Pods_NetwokingMVP {
+  umbrella header "Pods-NetwokingMVP-umbrella.h"
+
+  export *
+  module * { export * }
+}
