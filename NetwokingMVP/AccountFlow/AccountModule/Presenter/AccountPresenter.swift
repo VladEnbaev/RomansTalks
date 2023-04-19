@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AccountPresenterProtocol : AnyObject{
-    init(user: User, view: AccountViewProtocol, networkService: NetworkServiceProtocol, coordinator: CoordinatorProtocol)
+    init(user: User?, view: AccountViewProtocol, networkService: NetworkServiceProtocol, coordinator: CoordinatorProtocol)
     func viewIsLoaded()
 }
 
@@ -19,7 +19,7 @@ class AccountPresenter: AccountPresenterProtocol {
     var coordinator : CoordinatorProtocol!
     var user : User?
     
-    required init(user: User, view: AccountViewProtocol, networkService: NetworkServiceProtocol, coordinator: CoordinatorProtocol) {
+    required init(user: User?, view: AccountViewProtocol, networkService: NetworkServiceProtocol, coordinator: CoordinatorProtocol) {
         self.view = view
         self.networkService = networkService
         self.coordinator = coordinator

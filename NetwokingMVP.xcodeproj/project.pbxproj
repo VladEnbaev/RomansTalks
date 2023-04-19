@@ -47,6 +47,7 @@
 		FFF0DCAF29CA03F100658190 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DCAE29CA03F100658190 /* RegistrationPresenter.swift */; };
 		FFF43ADA29F057B300342DF1 /* AccountTopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */; };
 		FFF43ADF29F079A700342DF1 /* AccountFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */; };
+		FFF43AE129F079F800342DF1 /* AccountFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF43AE029F079F800342DF1 /* AccountFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		FFF0DCAE29CA03F100658190 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		FFF43AD929F057B300342DF1 /* AccountTopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTopInfoView.swift; sourceTree = "<group>"; };
 		FFF43ADE29F079A700342DF1 /* AccountFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlowBuilder.swift; sourceTree = "<group>"; };
+		FFF43AE029F079F800342DF1 /* AccountFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +545,7 @@
 		FFF43ADD29F0798100342DF1 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				FFF43AE029F079F800342DF1 /* AccountFlowCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -807,6 +810,7 @@
 				FFF0DCAC29CA03CB00658190 /* RegistrationViewController.swift in Sources */,
 				FFF0DC8829C646FD00658190 /* Resources.swift in Sources */,
 				FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */,
+				FFF43AE129F079F800342DF1 /* AccountFlowCoordinator.swift in Sources */,
 				FFD38D7F29F0390400AF8F91 /* AccountViewController.swift in Sources */,
 				FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */,
 				FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */,
