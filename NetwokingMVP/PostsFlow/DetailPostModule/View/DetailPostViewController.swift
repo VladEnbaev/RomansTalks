@@ -62,7 +62,7 @@ extension DetailPostViewController : DetailPostViewProtocol {
     }
 }
 
-extension DetailPostViewController : UITableViewDelegate, UITableViewDataSource {
+extension DetailPostViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let commentsCount = self.comments?.count, self.post != nil{
             return 1 + commentsCount
@@ -96,6 +96,12 @@ extension DetailPostViewController : UITableViewDelegate, UITableViewDataSource 
         } else {
             return self.view.bounds.height / 4
         }
+    }
+}
+
+extension DetailPostViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

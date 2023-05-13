@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 fileprivate enum APIs {
     static let posts = "/posts"
     static let users = "/users"
@@ -16,56 +18,78 @@ fileprivate enum APIs {
     static let todos = "/todos"
 }
 
+fileprivate enum HTTPMethod {
+    static let post = "POST"
+    static let put = "PUT"
+    static let get = "GET"
+    static let delete = "DELETE"
+}
+
 protocol NetworkServiceProtocol {
     func getPosts(completionHandler: @escaping (Result<[Post]?, Error>) -> Void)
     func getComments(for postId: String, completionHandler: @escaping (Result<[Comment]?, Error>) -> Void)
+    func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void)
 }
 
 class NetworkService : NetworkServiceProtocol {
     
-    private let baseUrl = "https://jsonplaceholder.typicode.com"
+    private let baseURL = "https://jsonplaceholder.typicode.com"
     
     func getComments(for postId: String, completionHandler: @escaping (Result<[Comment]?, Error>) -> Void) {
-        print(postId)
-        let urlString = baseUrl + APIs.comments
+        let urlString = baseURL + APIs.comments
         
         guard let myUrl = URL(string: urlString) else { return }
         var queryComponents = URLComponents(url: myUrl, resolvingAgainstBaseURL: true)
         queryComponents?.queryItems = [ URLQueryItem(name: "postId", value: postId)]
         guard let queryURL = queryComponents?.url else { return }
         
-        resumeGetURLSession(with: queryURL, completionHandler: completionHandler)
+        getURLSession(with: queryURL, completionHandler: completionHandler)
     }
     
     
     func getPosts(completionHandler: @escaping (Result<[Post]?, Error>) -> Void) {
-        let urlString = baseUrl + APIs.posts
-        resumeGetURLSession(with: urlString, completionHandler: completionHandler)
+        let urlString = baseURL + APIs.posts
+        guard let url = URL(string: urlString) else { return }
+        
+        getURLSession(with: url, completionHandler: completionHandler)
     }
     
-    func postCreateUser(complitionHandler: @escaping (Result<[String], Error>) -> Void) {
+    func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void) {
+        let urlString = baseURL + APIs.users
+        guard let url = URL(string: urlString) else { return }
+        
+        postURLSession(url: url, data: user, complitionHandler: complitionHandler)
     }
     
-    
-    //private func resumePostUrlSession
-    
-    private func resumeGetURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T]?, Error>) -> Void)  where T : Decodable {
-        URLSession.shared.dataTask(with: url) { (data,response,error) in
-            if let error = error{
-                completionHandler(.failure(error))
-            } else {
-                do{
-                    let posts = try JSONDecoder().decode([T].self, from: data!)
-                    completionHandler(.success(posts))
+    func postCreatePost(_ post: Post, complitionHandler: @escaping (Result<Post, Error>) -> Void) {
+        
+    }
+
+    private func postURLSession<T>(url: URL, data: T, complitionHandler: @escaping (Result<T, Error>) -> Void) where T: Codable {
+        guard let sendData = try? JSONEncoder().encode(data) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post
+        request.httpBody = sendData
+        request.setValue("\(sendData.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let httpError = error {
+                complitionHandler(.failure(httpError))
+            } else if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode), let responseData = data {
+                do {
+                    let responseModel : T = try JSONDecoder().decode(T.self, from: responseData)
+                    complitionHandler(.success(responseModel))
                 } catch {
-                    completionHandler(.failure(error))
+                    complitionHandler(.failure(error))
                 }
             }
         }.resume()
     }
-
-    private func resumeGetURLSession<T>(with urlString: String, completionHandler: @escaping (Result<[T]?, Error>) -> Void)  where T : Decodable {
-        guard let url = URL(string: urlString) else { return }
+    
+    
+    private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T]?, Error>) -> Void)  where T : Decodable {
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             if let error = error{
                 completionHandler(.failure(error))

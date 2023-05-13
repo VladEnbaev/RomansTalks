@@ -29,7 +29,7 @@ class AccountViewController: BaseViewController, AccountViewProtocol {
     }
     
     func setUser(_ user: User) {
-        topView.setup(username: user.username, email: user.email, image: UIImage())
+        topView.setup(username: "\(user.username) \(user.id)", email: user.email, image: UIImage())
         setupTopView()
     }
     

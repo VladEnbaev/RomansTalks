@@ -77,6 +77,7 @@ extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailPost = posts?[indexPath.row] else { return }
         presenter.didTappedOnPost(post: detailPost)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 //MARK: - Create UI

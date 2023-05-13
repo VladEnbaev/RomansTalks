@@ -36,9 +36,21 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
         } else {
             user.email = email
             user.username = username
-            coordinator.showTabBar(with: user)
+            postUserAndMoveToAnotherModule()
         }
-        
-        
+    }
+    
+    private func postUserAndMoveToAnotherModule() {
+        networkService.postCreateUser(user) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
+                    self.user = user
+                    self.coordinator.showTabBar(with: user)
+                case .failure(let error):
+                    print("error is" + error.localizedDescription)
+                }
+            }
+        }
     }
 }

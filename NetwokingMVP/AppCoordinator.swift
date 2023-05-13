@@ -19,8 +19,6 @@ protocol AppCoordinatorProtocol : CoordinatorProtocol {
 }
 
 class AppCoordinator : AppCoordinatorProtocol {
-    
-    
     var navigationController : UINavigationController!
     
     required init(navigationController: UINavigationController) {
