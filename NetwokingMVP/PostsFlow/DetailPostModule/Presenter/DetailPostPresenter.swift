@@ -45,7 +45,7 @@ class DetailPostPresenter : DetailPostPresenterProtocol{
             DispatchQueue.main.async {
                 switch result {
                 case .success(let recievedComments):
-                    guard let comments = recievedComments else { return }
+                    let comments = recievedComments
                     self.view.startAnimation(false)
                     self.comments = comments
                     self.view.commentsGettingSuccess(with: comments)

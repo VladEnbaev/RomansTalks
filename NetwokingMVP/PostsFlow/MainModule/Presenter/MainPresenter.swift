@@ -23,10 +23,10 @@ protocol MainPresenterProrocol : AnyObject {
 class MainPresenter : MainPresenterProrocol {
     weak var view : MainViewProtocol?
     let networkService : NetworkServiceProtocol
-    let router : PostsFeedFlowCoordinatorProtocol
+    let coordinator : PostsFeedFlowCoordinatorProtocol
     
     required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: PostsFeedFlowCoordinatorProtocol) {
-        self.router = router
+        self.coordinator = router
         self.networkService = networkService
         self.view = view
         getPosts()
@@ -39,7 +39,7 @@ class MainPresenter : MainPresenterProrocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let recievedPosts):
-                    guard let posts = recievedPosts else { return }
+                    let posts = recievedPosts
                     self.view?.success(with: posts)
                     self.view?.startAnimation(false)
                 case .failure(let error):
@@ -51,7 +51,7 @@ class MainPresenter : MainPresenterProrocol {
     }
     
     func didTappedOnPost(post: Post) {
-        router.showDetail(with: post)
+        coordinator.showDetail(with: post)
     }
     
 }

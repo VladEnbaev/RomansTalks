@@ -26,8 +26,8 @@ fileprivate enum HTTPMethod {
 }
 
 protocol NetworkServiceProtocol {
-    func getPosts(completionHandler: @escaping (Result<[Post]?, Error>) -> Void)
-    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment]?, Error>) -> Void)
+    func getPosts(completionHandler: @escaping (Result<[Post], Error>) -> Void)
+    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment], Error>) -> Void)
     func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void)
 }
 
@@ -35,7 +35,7 @@ class NetworkService : NetworkServiceProtocol {
     
     private let baseURL = "https://jsonplaceholder.typicode.com"
     
-    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment]?, Error>) -> Void) {
+    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment], Error>) -> Void) {
         let urlString = baseURL + APIs.comments
         
         guard let myUrl = URL(string: urlString) else { return }
@@ -47,7 +47,7 @@ class NetworkService : NetworkServiceProtocol {
     }
     
     
-    func getPosts(completionHandler: @escaping (Result<[Post]?, Error>) -> Void) {
+    func getPosts(completionHandler: @escaping (Result<[Post], Error>) -> Void) {
         let urlString = baseURL + APIs.posts
         guard let url = URL(string: urlString) else { return }
         
@@ -61,9 +61,18 @@ class NetworkService : NetworkServiceProtocol {
         postURLSession(url: url, data: user, complitionHandler: complitionHandler)
     }
     
-    func postCreatePost(_ post: Post, complitionHandler: @escaping (Result<Post, Error>) -> Void) {
+    func getUser(userId: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void) {
+        let urlString = baseURL + APIs.users
+        guard let url = URL(string: urlString) else { return }
         
+        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        queryComponents?.queryItems = [ URLQueryItem(name: "userId", value: "\(userId)") ]
+        guard let queryURL = queryComponents?.url else { return }
+        
+        getURLSession(with: queryURL, completionHandler: compitionHandler)
     }
+    
+    
 
     private func postURLSession<T>(url: URL, data: T, complitionHandler: @escaping (Result<T, Error>) -> Void) where T: Codable {
         guard let sendData = try? JSONEncoder().encode(data) else { return }
@@ -89,7 +98,7 @@ class NetworkService : NetworkServiceProtocol {
     }
     
     
-    private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T]?, Error>) -> Void)  where T : Decodable {
+    private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void)  where T : Decodable {
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             if let error = error{
                 completionHandler(.failure(error))

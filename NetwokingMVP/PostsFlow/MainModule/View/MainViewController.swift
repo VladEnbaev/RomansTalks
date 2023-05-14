@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.largeContentTitle = "Posts Feed"
         self.view.backgroundColor = .systemBackground
         createTableView()
     }
