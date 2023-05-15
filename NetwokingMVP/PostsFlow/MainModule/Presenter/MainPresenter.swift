@@ -60,4 +60,25 @@ class MainPresenter : MainPresenterProrocol {
         }
     }
     
+    func getUserWithId(post: Post, completion: ([User])) {
+        networkService.getUser(id: post.userId) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
+                    var postWithUser = post
+                    postWithUser.user = user.first
+                    self.coordinator.showDetail(with: postWithUser)
+                    self.view?.startAnimation(false)
+                case .failure(let error):
+                    self.view?.startAnimation(false)
+                    self.view?.failure(error: error)
+                }
+            }
+        }
+    }
+    
+//    func getPostWithId(post: Post, completion: ([User])) {
+//        networkService.getPost(id: , completionHandler: <#T##(Result<[Post], Error>) -> Void#>)
+//        }
+//    }
 }

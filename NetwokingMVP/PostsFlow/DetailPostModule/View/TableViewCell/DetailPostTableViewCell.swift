@@ -16,7 +16,7 @@ class DetailPostTableViewCell: PostTableViewCell {
         setupUserButton(userButton)
         self.titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         self.bodyLabel.font = UIFont.systemFont(ofSize: 20)
-        self.userButton.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        self.userButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
         self.userButton.isUserInteractionEnabled = true
         self.isUserInteractionEnabled = false
     }
