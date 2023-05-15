@@ -11,12 +11,10 @@ class PostTableViewCell: UITableViewCell {
 
     var titleLabel = UILabel()
     var bodyLabel = UILabel()
-    var userButton = UIButton(type: .system)
     var post : Post!
     
     func configure(with post: Post){
         self.post = post
-        setupUserButton(userButton)
         setupTitleLabel(titleLabel)
         setupBodyLabel(bodyLabel)
         constraintViews()
@@ -24,7 +22,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func constraintViews(){
-        let stackView = UIStackView(arrangedSubviews: [userButton, titleLabel, bodyLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, bodyLabel])
         stackView.spacing = 8
         stackView.axis = .vertical
         self.contentView.addSubview(stackView)
@@ -36,6 +34,7 @@ class PostTableViewCell: UITableViewCell {
     
     func setupTitleLabel(_ label: UILabel){
         label.text = post.title
+        label.font = UIFont.boldSystemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -46,10 +45,5 @@ class PostTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.numberOfLines = 0
     }
-    func setupUserButton(_ button: UIButton){
-        button.setTitle("\(post.userId)", for: .normal)
-        button.isUserInteractionEnabled = false
-        button.contentHorizontalAlignment = .left
-        button.titleEdgeInsets = UIEdgeInsets.zero
-    }
+    
 }

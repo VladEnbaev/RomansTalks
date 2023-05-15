@@ -74,17 +74,17 @@ struct Address : Codable {
 struct Company : Codable {
     static let adminCompany = Company(name: "", catchPrase: "", bs: "")
     let name : String
-    let catchPrase : String
+    let catchPhrase : String
     let bs : String
     
     init(name: String, catchPrase: String, bs: String) {
         self.name = name
-        self.catchPrase = catchPrase
+        self.catchPhrase = catchPrase
         self.bs = bs
     }
     init() {
         self.name = ""
-        self.catchPrase = ""
+        self.catchPhrase = ""
         self.bs = ""
     }
 }

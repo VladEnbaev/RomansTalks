@@ -29,6 +29,7 @@ protocol NetworkServiceProtocol {
     func getPosts(completionHandler: @escaping (Result<[Post], Error>) -> Void)
     func getComments(for postId: String, completionHandler: @escaping (Result<[Comment], Error>) -> Void)
     func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void)
+    func getUser(userId: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void)
 }
 
 class NetworkService : NetworkServiceProtocol {
@@ -66,9 +67,9 @@ class NetworkService : NetworkServiceProtocol {
         guard let url = URL(string: urlString) else { return }
         
         var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        queryComponents?.queryItems = [ URLQueryItem(name: "userId", value: "\(userId)") ]
+        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(userId)") ]
         guard let queryURL = queryComponents?.url else { return }
-        
+        print(queryURL.absoluteString)
         getURLSession(with: queryURL, completionHandler: compitionHandler)
     }
     
@@ -98,15 +99,35 @@ class NetworkService : NetworkServiceProtocol {
     }
     
     
+//    private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void)  where T : Decodable {
+//        URLSession.shared.dataTask(with: url) { (data,response,error) in
+//            if let error = error{
+//                completionHandler(.failure(error))
+//            } else {
+//                do{
+//                    let posts = try JSONDecoder().decode([T].self, from: data!)
+//                    completionHandler(.success(posts))
+//                } catch {
+//                    completionHandler(.failure(error))
+//                }
+//            }
+//        }.resume()
+//    }
+    
     private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void)  where T : Decodable {
         URLSession.shared.dataTask(with: url) { (data,response,error) in
+            guard let data = data else {
+                print("fuck")
+                return
+            }
             if let error = error{
                 completionHandler(.failure(error))
             } else {
                 do{
-                    let posts = try JSONDecoder().decode([T].self, from: data!)
+                    let posts = try JSONDecoder().decode([T].self, from: data)
                     completionHandler(.success(posts))
                 } catch {
+                    debugPrint(error)
                     completionHandler(.failure(error))
                 }
             }

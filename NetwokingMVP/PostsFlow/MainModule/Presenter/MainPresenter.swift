@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol MainViewProtocol : AnyObject{
-    var posts : [Post]? { get set }
-    func success(with posts : [Post])
-    func failure(error: Error)
-    func startAnimation(_ bool: Bool)
-}
 
 protocol MainPresenterProrocol : AnyObject {
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: PostsFeedFlowCoordinatorProtocol)
@@ -38,8 +32,7 @@ class MainPresenter : MainPresenterProrocol {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
-                case .success(let recievedPosts):
-                    let posts = recievedPosts
+                case .success(let posts):
                     self.view?.success(with: posts)
                     self.view?.startAnimation(false)
                 case .failure(let error):
@@ -51,7 +44,20 @@ class MainPresenter : MainPresenterProrocol {
     }
     
     func didTappedOnPost(post: Post) {
-        coordinator.showDetail(with: post)
+        networkService.getUser(userId: post.userId) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
+                    var postWithUser = post
+                    postWithUser.user = user.first
+                    self.coordinator.showDetail(with: postWithUser)
+                    self.view?.startAnimation(false)
+                case .failure(let error):
+                    self.view?.startAnimation(false)
+                    self.view?.failure(error: error)
+                }
+            }
+        }
     }
     
 }
