@@ -44,23 +44,6 @@ class MainPresenter : MainPresenterProrocol {
     }
     
     func didTappedOnPost(post: Post) {
-        networkService.getUser(userId: post.userId) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let user):
-                    var postWithUser = post
-                    postWithUser.user = user.first
-                    self.coordinator.showDetail(with: postWithUser)
-                    self.view?.startAnimation(false)
-                case .failure(let error):
-                    self.view?.startAnimation(false)
-                    self.view?.failure(error: error)
-                }
-            }
-        }
-    }
-    
-    func getUserWithId(post: Post, completion: ([User])) {
         networkService.getUser(id: post.userId) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -77,8 +60,21 @@ class MainPresenter : MainPresenterProrocol {
         }
     }
     
-//    func getPostWithId(post: Post, completion: ([User])) {
-//        networkService.getPost(id: , completionHandler: <#T##(Result<[Post], Error>) -> Void#>)
+//    func getUserWithId(_ id: Int, completion: ([User]) -> Void) {
+//        networkService.getUser(id: id) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let user):
+//                    var postWithUser = post
+//                    postWithUser.user = user.first
+//                    self.coordinator.showDetail(with: postWithUser)
+//                    self.view?.startAnimation(false)
+//                case .failure(let error):
+//                    self.view?.startAnimation(false)
+//                    self.view?.failure(error: error)
+//                }
+//            }
 //        }
 //    }
+    
 }

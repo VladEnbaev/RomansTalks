@@ -74,34 +74,6 @@ class NetworkService : NetworkServiceProtocol {
         postURLSession(url: url, data: user, complitionHandler: complitionHandler)
     }
     
-    
-    
-//    func getPostWithUser(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void) {
-//        
-//        let posts = [Post]()
-//        
-//        let compareUserWithPost : (Result<[User], Error>) -> Void = { result in
-//            switch result {
-//            case .success(let users as! [User]):
-//                var user = users[0]
-//                posts[0].user = user
-//                completionHandler(.success(posts))
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//            }
-//        }
-//        
-//        getPost(id: id) { result in
-//            switch result {
-//            case .success(let recievedPosts):
-//                posts = recievedPosts
-//                self.getUser(userId: posts[0].userId, completionHandler: compareUserWithPost)
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//            }
-//        }
-//    }
-    
     func getUser(id: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void) {
         let urlString = baseURL + APIs.users
         guard let url = URL(string: urlString) else { return }
@@ -154,8 +126,33 @@ class NetworkService : NetworkServiceProtocol {
                 }
             }
         }.resume()
-        
     }
+    
+    //    func getPostWithUser(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void) {
+    //
+    //        let posts = [Post]()
+    //
+    //        let compareUserWithPost : (Result<[User], Error>) -> Void = { result in
+    //            switch result {
+    //            case .success(let users as! [User]):
+    //                var user = users[0]
+    //                posts[0].user = user
+    //                completionHandler(.success(posts))
+    //            case .failure(let error):
+    //                completionHandler(.failure(error))
+    //            }
+    //        }
+    //
+    //        self.getPost(id: id) { result in
+    //            switch result {
+    //            case .success(let recievedPosts):
+    //                posts = recievedPosts
+    //                self.getUser(userId: posts[0].userId, completionHandler: compareUserWithPost)
+    //            case .failure(let error):
+    //                completionHandler(.failure(error))
+    //            }
+    //        }
+    //    }
 }
 
 
