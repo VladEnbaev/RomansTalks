@@ -46,7 +46,6 @@ class AccountViewController: BaseViewController, AccountViewProtocol {
 extension AccountViewController {
     func setupTopView(){
         view.addSubview(topView)
-        print(view.safeAreaInsets.top)
         topView.snp.makeConstraints(){ make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()

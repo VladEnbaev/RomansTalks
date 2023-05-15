@@ -31,7 +31,7 @@ class WelcomePresenter : WelcomePresenterProtocol {
             view.showAlert(text: Resources.ErrorTexts.usernameEmpty)
         } else if password.isEmpty{
             view.showAlert(text: Resources.ErrorTexts.passwordEmpty)
-        } else if  password == "admin" && username == "admin"{
+        } else if  password == "admin" && username == "Admin"{
             coordinator.showTabBar(with: User.admin)
         } else {
             view.showAlert(text: Resources.ErrorTexts.needToRegistration)

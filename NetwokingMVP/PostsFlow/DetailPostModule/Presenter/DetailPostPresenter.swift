@@ -8,13 +8,6 @@
 import Foundation
 
 
-protocol DetailPostViewProtocol : AnyObject{
-    var presenter : DetailPostPresenterProtocol! { get set }
-    func commentsGettingSuccess(with comments: [Comment])
-    func commentsGettingError(error: Error)
-    func startAnimation(_ bool: Bool)
-    func setPost(with post : Post)
-}
 
 protocol DetailPostPresenterProtocol : AnyObject {
     init(view: DetailPostViewProtocol, networkService: NetworkServiceProtocol, post: Post)

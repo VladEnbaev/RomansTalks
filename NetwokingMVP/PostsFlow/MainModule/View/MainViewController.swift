@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol MainViewProtocol : AnyObject{
+    var posts : [Post]? { get set }
+    func success(with posts : [Post])
+    func failure(error: Error)
+    func startAnimation(_ bool: Bool)
+}
+
 class MainViewController: UIViewController {
     
     let indicator = UIActivityIndicatorView(style: .large)

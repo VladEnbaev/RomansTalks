@@ -7,6 +7,14 @@
 
 import UIKit
 
+protocol DetailPostViewProtocol : AnyObject{
+    var presenter : DetailPostPresenterProtocol! { get set }
+    func commentsGettingSuccess(with comments: [Comment])
+    func commentsGettingError(error: Error)
+    func startAnimation(_ bool: Bool)
+    func setPost(with post : Post)
+}
+
 class DetailPostViewController: UIViewController{
 
     let indicator = UIActivityIndicatorView(style: .large)
@@ -37,7 +45,7 @@ extension DetailPostViewController : DetailPostViewProtocol {
         let okButton = UIAlertAction(title: "ok", style: .default)
         alert.addAction(okButton)
         self.present(alert, animated: true)
-        print(error.localizedDescription)
+        print("detailVC \(error.localizedDescription)")
     }
     
     func startAnimation(_ bool: Bool) {
@@ -94,7 +102,7 @@ extension DetailPostViewController : UITableViewDataSource {
         if indexPath.row == 0 {
             return self.view.bounds.height / 2
         } else {
-            return self.view.bounds.height / 4
+            return self.view.bounds.height / 3
         }
     }
 }
