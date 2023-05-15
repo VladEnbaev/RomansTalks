@@ -114,6 +114,7 @@ class NetworkService : NetworkServiceProtocol {
 //        }.resume()
 //    }
     
+    
     private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void)  where T : Decodable {
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             guard let data = data else {
