@@ -10,6 +10,7 @@
 		5964658488A10DDA1A79D971 /* Pods_NetwokingMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C449D5076DCEDF55915663B6 /* Pods_NetwokingMVP.framework */; };
 		7B8127C784811CE6FE2797E1 /* Pods_NetwokingMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06F8B1AA1CBA2D12ED25BAE /* Pods_NetwokingMVPTests.framework */; };
 		D9B86E24682CCF2749DFDE70 /* Pods_NetwokingMVP_NetwokingMVPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48DBEAD3107894B88557B79 /* Pods_NetwokingMVP_NetwokingMVPUITests.framework */; };
+		FF5774292A13BB72008582F3 /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5774282A13BB72008582F3 /* UIColor + ext.swift */; };
 		FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */; };
 		FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */; };
 		FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BA129C09CCE001B1F8D /* MainViewController.swift */; };
@@ -79,6 +80,7 @@
 		C15B75578DE741DCF0303645 /* Pods-NetwokingMVP-NetwokingMVPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetwokingMVP-NetwokingMVPUITests.release.xcconfig"; path = "Target Support Files/Pods-NetwokingMVP-NetwokingMVPUITests/Pods-NetwokingMVP-NetwokingMVPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C449D5076DCEDF55915663B6 /* Pods_NetwokingMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetwokingMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8567E6BDC679B32959281ED /* Pods-NetwokingMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetwokingMVPTests.release.xcconfig"; path = "Target Support Files/Pods-NetwokingMVPTests/Pods-NetwokingMVPTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF5774282A13BB72008582F3 /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
 		FF680B9A29C09CCE001B1F8D /* NetwokingMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetwokingMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */,
 				FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */,
+				FF5774282A13BB72008582F3 /* UIColor + ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */,
 				FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */,
 				FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */,
+				FF5774292A13BB72008582F3 /* UIColor + ext.swift in Sources */,
 				FFF0DC8A29C70D2E00658190 /* PostsFeedFlowCoordinator.swift in Sources */,
 				FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */,
 				FFF43AE629F07D9100342DF1 /* MainTabBarController.swift in Sources */,
