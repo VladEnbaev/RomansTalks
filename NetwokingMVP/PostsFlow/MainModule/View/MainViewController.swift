@@ -76,7 +76,7 @@ extension MainViewController : UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.bounds.height / 3
+        return 200 + PostTableViewCell.Constants.cellsOffset.rawValue + PostTableViewCell.Constants.shadowRadius.rawValue
     }
 }
 extension MainViewController : UITableViewDelegate {
@@ -93,6 +93,7 @@ extension MainViewController {
         postsTableView.dataSource = self
         postsTableView.delegate = self
         postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: Resources.Identifiers.postCellID)
+        self.postsTableView.separatorStyle = .none
         self.view.addSubview(postsTableView)
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
