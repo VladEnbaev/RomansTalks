@@ -40,7 +40,8 @@ class AppCoordinator : AppCoordinatorProtocol {
     }
     
     func start() {
-        showLoginFlow()
+        showTabBarFlow(with: User.admin)
+//        showLoginFlow()
         
     }
     

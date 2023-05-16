@@ -14,16 +14,19 @@ class DetailPostTableViewCell: PostTableViewCell {
     override func configure(with post: Post) {
         super.configure(with: post)
         setupUserButton(userButton)
-        self.titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        self.bodyLabel.font = UIFont.systemFont(ofSize: 20)
-        self.userButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        self.bodyLabel.font = UIFont.systemFont(ofSize: 15)
+        self.userButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
         self.userButton.isUserInteractionEnabled = true
         self.isUserInteractionEnabled = false
     }
     
     override func constraintViews() {
-        let stackView = UIStackView(arrangedSubviews: [userButton, titleLabel, bodyLabel])
-        stackView.spacing = 8
+        let titleStackView = UIStackView(arrangedSubviews: [userButton, titleLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleStackView, bodyLabel])
+        titleStackView.axis = .vertical
+        titleStackView.spacing = -2
+        stackView.spacing = 5
         stackView.axis = .vertical
         self.contentView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
