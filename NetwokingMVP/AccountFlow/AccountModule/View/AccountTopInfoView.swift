@@ -27,6 +27,7 @@ class AccountTopInfoView: UIView {
 
 }
 extension AccountTopInfoView {
+    
     func setupLabelsStackView(){
         self.addSubview(labelsStackView)
         labelsStackView.axis = .vertical
@@ -51,7 +52,9 @@ extension AccountTopInfoView {
     }
     
     func setupProfileImageView(){
+        profileImageView.layer.masksToBounds = true
         profileImageView.backgroundColor = .blue
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         self.addSubview(profileImageView)
         profileImageView.snp.makeConstraints(){ make in
             make.centerY.equalTo(labelsStackView)

@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        title = "Posts"
         createTableView()
     }
 }
@@ -62,7 +63,7 @@ extension MainViewController : MainViewProtocol {
 
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts?.count ?? 0
+        return 1 //self.posts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,9 +76,15 @@ extension MainViewController : UITableViewDataSource {
         return UITableViewCell()
         
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 + PostTableViewCell.Constants.cellsOffset.rawValue + PostTableViewCell.Constants.shadowRadius.rawValue
-    }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.translatesAutoresizingMaskIntoConstraints = false
+//        cell.setNeedsLayout()
+//        cell.layoutIfNeeded()
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 296 + PostTableViewCell.Constants.cellsOffset.rawValue + PostTableViewCell.Constants.shadowRadius.rawValue
+//    }
 }
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,8 +100,12 @@ extension MainViewController {
         postsTableView.dataSource = self
         postsTableView.delegate = self
         postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: Resources.Identifiers.postCellID)
-        self.postsTableView.separatorStyle = .none
-        self.view.addSubview(postsTableView)
+//        postsTableView.sectionHeaderHeight = UITableView.automaticDimension;
+//        postsTableView.estimatedSectionHeaderHeight = 0;
+        
+        postsTableView.separatorStyle = .none
+        
+        view.addSubview(postsTableView)
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

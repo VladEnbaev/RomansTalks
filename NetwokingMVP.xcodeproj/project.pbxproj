@@ -12,6 +12,8 @@
 		D9B86E24682CCF2749DFDE70 /* Pods_NetwokingMVP_NetwokingMVPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48DBEAD3107894B88557B79 /* Pods_NetwokingMVP_NetwokingMVPUITests.framework */; };
 		FF5774292A13BB72008582F3 /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5774282A13BB72008582F3 /* UIColor + ext.swift */; };
 		FF57742B2A13D925008582F3 /* UILabel + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57742A2A13D925008582F3 /* UILabel + ext.swift */; };
+		FF57742F2A1426B4008582F3 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57742E2A1426B4008582F3 /* PostButton.swift */; };
+		FF5774322A1428A3008582F3 /* UIView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5774312A1428A3008582F3 /* UIView + ext.swift */; };
 		FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */; };
 		FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */; };
 		FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BA129C09CCE001B1F8D /* MainViewController.swift */; };
@@ -83,6 +85,8 @@
 		F8567E6BDC679B32959281ED /* Pods-NetwokingMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetwokingMVPTests.release.xcconfig"; path = "Target Support Files/Pods-NetwokingMVPTests/Pods-NetwokingMVPTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF5774282A13BB72008582F3 /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
 		FF57742A2A13D925008582F3 /* UILabel + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + ext.swift"; sourceTree = "<group>"; };
+		FF57742E2A1426B4008582F3 /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
+		FF5774312A1428A3008582F3 /* UIView + ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + ext.swift"; sourceTree = "<group>"; };
 		FF680B9A29C09CCE001B1F8D /* NetwokingMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetwokingMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF680B9F29C09CCE001B1F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FF5774302A1426BA008582F3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				FF57742E2A1426B4008582F3 /* PostButton.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		FF680B9129C09CCE001B1F8D = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +261,7 @@
 		FF680BD229C0A3FA001B1F8D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF5774302A1426BA008582F3 /* Subviews */,
 				FFA9881629CF7E4C0045F449 /* TableViewCell */,
 				FF680BA129C09CCE001B1F8D /* MainViewController.swift */,
 			);
@@ -266,6 +279,7 @@
 		FFA9880E29CF53030045F449 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF5774312A1428A3008582F3 /* UIView + ext.swift */,
 				FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */,
 				FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */,
 				FF5774282A13BB72008582F3 /* UIColor + ext.swift */,
@@ -817,9 +831,11 @@
 				FFF0DCAF29CA03F100658190 /* RegistrationPresenter.swift in Sources */,
 				FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */,
 				FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */,
+				FF57742F2A1426B4008582F3 /* PostButton.swift in Sources */,
 				FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */,
 				FFF43AE329F07CAE00342DF1 /* TabBarBuilder.swift in Sources */,
 				FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */,
+				FF5774322A1428A3008582F3 /* UIView + ext.swift in Sources */,
 				FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */,
 				FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */,
 				FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */,
@@ -1022,6 +1038,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=iphoneos*]" = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

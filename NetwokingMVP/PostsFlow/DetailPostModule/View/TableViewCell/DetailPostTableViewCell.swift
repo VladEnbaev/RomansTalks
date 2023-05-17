@@ -21,7 +21,7 @@ class DetailPostTableViewCell: PostTableViewCell {
         self.isUserInteractionEnabled = false
     }
     
-    override func constraintViews() {
+    func constraintViews() {
         let titleStackView = UIStackView(arrangedSubviews: [userButton, titleLabel])
         let stackView = UIStackView(arrangedSubviews: [titleStackView, bodyLabel])
         titleStackView.axis = .vertical
