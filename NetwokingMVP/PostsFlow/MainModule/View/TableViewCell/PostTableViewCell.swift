@@ -15,6 +15,7 @@ class PostTableViewCell: UITableViewCell {
         case shadowRadius = 3
         case cellsOffset  = 8
         case contentOffset = 20
+        case profileImageSideLenght = 35
     }
     
     var post : Post!
@@ -40,6 +41,7 @@ class PostTableViewCell: UITableViewCell {
         setupTitleLabel()
         setupBodyLabel()
         setupEmailLabel()
+        setupUsernameLabel()
         setupTitleLabel()
         setupProilePhotoImageView()
         setupCurvedView()
@@ -50,10 +52,6 @@ class PostTableViewCell: UITableViewCell {
 }
 private extension PostTableViewCell {
     func constraintViews(){
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        setNeedsLayout()
-        layoutIfNeeded()
         
         let userNamesStackView = UIStackView(arrangedSubviews: [usernameLable, emailLable])
         userNamesStackView.spacing = 3
@@ -84,11 +82,11 @@ private extension PostTableViewCell {
         curvedView.addSubview(activityStackView)
         
         NSLayoutConstraint.activate( [
-            profilePhotoImageView.heightAnchor.constraint(equalToConstant: 50),
-            profilePhotoImageView.widthAnchor.constraint(equalToConstant: 50),
+            profilePhotoImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSideLenght.rawValue),
+            profilePhotoImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSideLenght.rawValue),
             
-            curvedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
-            curvedView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -26),
+            curvedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            curvedView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             curvedView.topAnchor.constraint(equalTo: contentView.topAnchor),
             curvedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.cellsOffset.rawValue),
             
@@ -137,7 +135,7 @@ private extension PostTableViewCell {
     
     func setupUsernameLabel() {
         usernameLable.text = "username" // post.user?.username
-        usernameLable.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        usernameLable.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         usernameLable.numberOfLines = 1
         usernameLable.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -151,7 +149,7 @@ private extension PostTableViewCell {
     
     func setupProilePhotoImageView() {
         profilePhotoImageView.image = Resources.Images.Photos.none
-        profilePhotoImageView.makeCircle()
+        profilePhotoImageView.makeCornerRadius(radius: Constants.profileImageSideLenght.rawValue / 2)
         usernameLable.translatesAutoresizingMaskIntoConstraints = false
     }
     

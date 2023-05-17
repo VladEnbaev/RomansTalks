@@ -19,9 +19,9 @@ extension UIView {
         addSubview(separator)
     }
 
-    func makeCircle() {
+    func makeCornerRadius(radius: CGFloat) {
         layoutIfNeeded()
-        layer.cornerRadius = self.frame.height / 2
+        layer.cornerRadius = radius
         clipsToBounds = true
     }
     
