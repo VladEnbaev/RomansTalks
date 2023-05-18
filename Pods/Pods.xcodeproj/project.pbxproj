@@ -87,7 +87,7 @@
 		0072CC268C7456CC1DA6E8180975AB43 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Sources/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		01783661181E3F7A98E265EBE73BC23B /* Pods-RomansTalks-RomansTalksUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RomansTalks-RomansTalksUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		02732995CB94C03CB83E1935B434AD74 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Sources/ConstraintDSL.swift; sourceTree = "<group>"; };
-		05E13BB9567190600233E21F08A86674 /* Pods-RomansTalks */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-RomansTalks"; path = Pods_RomansTalks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E13BB9567190600233E21F08A86674 /* Pods_RomansTalks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RomansTalks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4B3092297166519217A25AD70D5341 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
 		0AFDF096C3836F945945C9FFDB5090F5 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/Constraint.swift; sourceTree = "<group>"; };
 		0CE4352CD5E590097B3900E366ACA7FC /* Pods-RomansTalks-RomansTalksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RomansTalks-RomansTalksUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		94E42FA589867A878EC039323DA40B7F /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		960E2E91424D9428F311B73888D8E927 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Sources/Typealiases.swift; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F0A527ED8F0A719FF610D743A87DAD3 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
 		A4EDB0EEB4950D08AA244A673E96750A /* Pods-RomansTalks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RomansTalks-dummy.m"; sourceTree = "<group>"; };
 		B4936348EE3B49A36817222C44FF1214 /* Pods-RomansTalks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RomansTalks-umbrella.h"; sourceTree = "<group>"; };
@@ -324,7 +324,6 @@
 				152EE8343B4F64CFDE73F65CEF14A13F /* UILayoutSupport+Extensions.swift */,
 				403EB05A3920652EED411213C52E3AC2 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -348,7 +347,7 @@
 		F0724E175594DDEFD39C82EDC81582D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05E13BB9567190600233E21F08A86674 /* Pods-RomansTalks */,
+				05E13BB9567190600233E21F08A86674 /* Pods_RomansTalks.framework */,
 				841BCDCB90DFAA9AA0893D791FCD7279 /* Pods-RomansTalks-RomansTalksUITests */,
 				155C16896F54FB01DE04A4089352C906 /* Pods-RomansTalksTests */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
@@ -474,7 +473,7 @@
 			);
 			name = "Pods-RomansTalks";
 			productName = Pods_RomansTalks;
-			productReference = 05E13BB9567190600233E21F08A86674 /* Pods-RomansTalks */;
+			productReference = 05E13BB9567190600233E21F08A86674 /* Pods_RomansTalks.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */

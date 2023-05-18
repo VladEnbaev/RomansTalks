@@ -14,7 +14,9 @@ protocol TabBarBuilderProtocol{
 
 class TabBarBuilder: TabBarBuilderProtocol {
     func createTabBar(user: User?, coordinator: AppCoordinatorProtocol) -> UITabBarController {
-        let tabBarController = UITabBarController()
+        
+        let tabBarController = MainTabBarController()
+        tabBarController.setupTabBar()
         //postsFlow
         let navControllerPostsFlow = UINavigationController()
         let moduleBuilderPostsFlow = PostsFeedFlowModulesBuilder()
@@ -27,17 +29,16 @@ class TabBarBuilder: TabBarBuilderProtocol {
                                                             moduleBuilder: moduleBulderAccountFlow,
                                                             coordinator: coordinator,
                                                             user: user)
+        //moc add post ViewController
+        let mocVC = UIViewController()
+        mocVC.view.backgroundColor = .white
+        
+        tabBarController.setupViewControllers([navControllerPostsFlow, mocVC, navControllerAccountFlow])
+        tabBarController.selectedViewController = navControllerPostsFlow
+        
         coordinatorPostsFlow.start()
         coordinatorAccountFlow.start()
         
-        tabBarController.viewControllers = [navControllerPostsFlow, navControllerAccountFlow]
-        navControllerPostsFlow.tabBarItem = UITabBarItem(title: "posts",
-                                                  image: UIImage(systemName: "ellipsis"),
-                                                  tag: 1)
-        navControllerAccountFlow.tabBarItem = UITabBarItem(title: "profile",
-                                                  image: UIImage(systemName: "person.crop.circle"),
-                                                  tag: 2)
-        tabBarController.selectedViewController = navControllerAccountFlow
         return tabBarController
         
     }

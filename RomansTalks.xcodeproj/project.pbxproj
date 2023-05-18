@@ -34,6 +34,7 @@
 		FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */; };
 		FFD38D7F29F0390400AF8F91 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */; };
 		FFD38D8129F0391400AF8F91 /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */; };
+		FFE5BAF42A16AE23005EADB7 /* UIImage + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */; };
 		FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */; };
 		FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */; };
 		FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC8129C4F01E00658190 /* CommentModel.swift */; };
@@ -111,6 +112,7 @@
 		FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
 		FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
+		FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + ext.swift"; sourceTree = "<group>"; };
 		FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostPresenter.swift; sourceTree = "<group>"; };
 		FFF0DC8129C4F01E00658190 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */,
 				FF5774282A13BB72008582F3 /* UIColor + ext.swift */,
 				FF57742A2A13D925008582F3 /* UILabel + ext.swift */,
+				FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				FFF0DC8429C4F6F300658190 /* CommentsTableViewCell.swift in Sources */,
 				FFF0DCAC29CA03CB00658190 /* RegistrationViewController.swift in Sources */,
 				FFF0DC8829C646FD00658190 /* Resources.swift in Sources */,
+				FFE5BAF42A16AE23005EADB7 /* UIImage + ext.swift in Sources */,
 				FFF0DC8229C4F01E00658190 /* CommentModel.swift in Sources */,
 				FFF43AE129F079F800342DF1 /* AccountFlowCoordinator.swift in Sources */,
 				FFD38D7F29F0390400AF8F91 /* AccountViewController.swift in Sources */,
