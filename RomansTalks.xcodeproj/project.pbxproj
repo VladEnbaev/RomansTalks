@@ -19,9 +19,9 @@
 		FF680BA229C09CCE001B1F8D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BA129C09CCE001B1F8D /* MainViewController.swift */; };
 		FF680BA729C09CCF001B1F8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF680BA629C09CCF001B1F8D /* Assets.xcassets */; };
 		FF680BAA29C09CCF001B1F8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF680BA829C09CCF001B1F8D /* LaunchScreen.storyboard */; };
-		FF680BB529C09CCF001B1F8D /* NetwokingMVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BB429C09CCF001B1F8D /* NetwokingMVPTests.swift */; };
-		FF680BBF29C09CCF001B1F8D /* NetwokingMVPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BBE29C09CCF001B1F8D /* NetwokingMVPUITests.swift */; };
-		FF680BC129C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BC029C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift */; };
+		FF680BB529C09CCF001B1F8D /* RomansTalksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BB429C09CCF001B1F8D /* RomansTalksTests.swift */; };
+		FF680BBF29C09CCF001B1F8D /* RomansTalksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BBE29C09CCF001B1F8D /* RomansTalksUITests.swift */; };
+		FF680BC129C09CCF001B1F8D /* RomansTalksUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BC029C09CCF001B1F8D /* RomansTalksUITestsLaunchTests.swift */; };
 		FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */; };
 		FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BCF29C09D71001B1F8D /* PostModel.swift */; };
 		FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */; };
@@ -95,10 +95,10 @@
 		FF680BA929C09CCF001B1F8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF680BAB29C09CCF001B1F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF680BB029C09CCF001B1F8D /* RomansTalksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RomansTalksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF680BB429C09CCF001B1F8D /* NetwokingMVPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokingMVPTests.swift; sourceTree = "<group>"; };
+		FF680BB429C09CCF001B1F8D /* RomansTalksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomansTalksTests.swift; sourceTree = "<group>"; };
 		FF680BBA29C09CCF001B1F8D /* RomansTalksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RomansTalksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF680BBE29C09CCF001B1F8D /* NetwokingMVPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokingMVPUITests.swift; sourceTree = "<group>"; };
-		FF680BC029C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokingMVPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF680BBE29C09CCF001B1F8D /* RomansTalksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomansTalksUITests.swift; sourceTree = "<group>"; };
+		FF680BC029C09CCF001B1F8D /* RomansTalksUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomansTalksUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF680BCD29C09D0E001B1F8D /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FF680BCF29C09D71001B1F8D /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFlowModulesBuilder.swift; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				FF680B9C29C09CCE001B1F8D /* NetwokingMVP */,
-				FF680BB329C09CCF001B1F8D /* NetwokingMVPTests */,
-				FF680BBD29C09CCF001B1F8D /* NetwokingMVPUITests */,
+				FF680BB329C09CCF001B1F8D /* RomansTalksTests */,
+				FF680BBD29C09CCF001B1F8D /* RomansTalksUITests */,
 				FF680B9B29C09CCE001B1F8D /* Products */,
 				158A1825AEDE07DE9578C9B0 /* Pods */,
 				7D2396D100C52E0F8287E59A /* Frameworks */,
@@ -231,21 +231,21 @@
 			path = NetwokingMVP;
 			sourceTree = "<group>";
 		};
-		FF680BB329C09CCF001B1F8D /* NetwokingMVPTests */ = {
+		FF680BB329C09CCF001B1F8D /* RomansTalksTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF680BB429C09CCF001B1F8D /* NetwokingMVPTests.swift */,
+				FF680BB429C09CCF001B1F8D /* RomansTalksTests.swift */,
 			);
-			path = NetwokingMVPTests;
+			path = RomansTalksTests;
 			sourceTree = "<group>";
 		};
-		FF680BBD29C09CCF001B1F8D /* NetwokingMVPUITests */ = {
+		FF680BBD29C09CCF001B1F8D /* RomansTalksUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FF680BBE29C09CCF001B1F8D /* NetwokingMVPUITests.swift */,
-				FF680BC029C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift */,
+				FF680BBE29C09CCF001B1F8D /* RomansTalksUITests.swift */,
+				FF680BC029C09CCF001B1F8D /* RomansTalksUITestsLaunchTests.swift */,
 			);
-			path = NetwokingMVPUITests;
+			path = RomansTalksUITests;
 			sourceTree = "<group>";
 		};
 		FF680BD129C0A3EE001B1F8D /* MainModule */ = {
@@ -868,7 +868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF680BB529C09CCF001B1F8D /* NetwokingMVPTests.swift in Sources */,
+				FF680BB529C09CCF001B1F8D /* RomansTalksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,8 +876,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF680BBF29C09CCF001B1F8D /* NetwokingMVPUITests.swift in Sources */,
-				FF680BC129C09CCF001B1F8D /* NetwokingMVPUITestsLaunchTests.swift in Sources */,
+				FF680BBF29C09CCF001B1F8D /* RomansTalksUITests.swift in Sources */,
+				FF680BC129C09CCF001B1F8D /* RomansTalksUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

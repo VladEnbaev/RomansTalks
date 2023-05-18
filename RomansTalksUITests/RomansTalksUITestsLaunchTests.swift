@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class NetwokingMVPUITestsLaunchTests: XCTestCase {
+final class RomansTalksUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
