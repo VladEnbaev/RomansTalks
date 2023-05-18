@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NetwokingMVP_NetwokingMVPUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NetwokingMVP_NetwokingMVPUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_RomansTalksVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_RomansTalksVersionString[];
 

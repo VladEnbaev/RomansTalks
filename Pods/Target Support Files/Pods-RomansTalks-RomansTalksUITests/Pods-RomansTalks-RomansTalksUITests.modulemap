@@ -1,0 +1,6 @@
+framework module Pods_RomansTalks_RomansTalksUITests {
+  umbrella header "Pods-RomansTalks-RomansTalksUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

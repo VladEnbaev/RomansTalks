@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FEB5B2720234E47EBC093B4A67898E00"
-               BuildableName = "Pods_NetwokingMVP_NetwokingMVPUITests.framework"
-               BlueprintName = "Pods-NetwokingMVP-NetwokingMVPUITests"
+               BlueprintIdentifier = "FB5466E6773C1B89AE7598CA0E6B4DE4"
+               BuildableName = "Pods_RomansTalks.framework"
+               BlueprintName = "Pods-RomansTalks"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
