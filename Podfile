@@ -3,15 +3,15 @@ platform :ios, '15.0'
 
 use_frameworks!
 
-target 'NetwokingMVP' do
+target 'RomansTalks' do
   pod 'SnapKit', '~> 5.6'
 
-  target 'NetwokingMVPTests' do
+  target 'RomansTalksTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'NetwokingMVPUITests' do
+  target 'RomansTalksUITests' do
     # Pods for testing
   end
 
