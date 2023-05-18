@@ -195,7 +195,7 @@
 		FF680B9129C09CCE001B1F8D = {
 			isa = PBXGroup;
 			children = (
-				FF680B9C29C09CCE001B1F8D /* NetwokingMVP */,
+				FF680B9C29C09CCE001B1F8D /* RomansTalks */,
 				FF680BB329C09CCF001B1F8D /* RomansTalksTests */,
 				FF680BBD29C09CCF001B1F8D /* RomansTalksUITests */,
 				FF680B9B29C09CCE001B1F8D /* Products */,
@@ -214,7 +214,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF680B9C29C09CCE001B1F8D /* NetwokingMVP */ = {
+		FF680B9C29C09CCE001B1F8D /* RomansTalks */ = {
 			isa = PBXGroup;
 			children = (
 				FF680B9D29C09CCE001B1F8D /* AppDelegate.swift */,
@@ -228,7 +228,7 @@
 				FFF0DC9329C78B8100658190 /* Helpers */,
 				FFA9881429CF71BF0045F449 /* SupportingFiles */,
 			);
-			path = NetwokingMVP;
+			path = RomansTalks;
 			sourceTree = "<group>";
 		};
 		FF680BB329C09CCF001B1F8D /* RomansTalksTests */ = {
@@ -1032,7 +1032,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T574RGJCUB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetwokingMVP/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = RomansTalks/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1062,7 +1062,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T574RGJCUB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetwokingMVP/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = RomansTalks/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
