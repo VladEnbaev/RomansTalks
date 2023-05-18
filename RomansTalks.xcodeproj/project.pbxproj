@@ -668,7 +668,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FF680B9529C09CCE001B1F8D /* Build configuration list for PBXProject "NetwokingMVP" */;
+			buildConfigurationList = FF680B9529C09CCE001B1F8D /* Build configuration list for PBXProject "RomansTalks" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1164,7 +1164,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF680B9529C09CCE001B1F8D /* Build configuration list for PBXProject "NetwokingMVP" */ = {
+		FF680B9529C09CCE001B1F8D /* Build configuration list for PBXProject "RomansTalks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF680BC229C09CCF001B1F8D /* Debug */,
