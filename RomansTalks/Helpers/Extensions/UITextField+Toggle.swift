@@ -18,20 +18,20 @@ extension UITextField {
         }
     }
 
-    func createPasswordToggle(){
-        let button = UIButton(type: .custom)
-        setPasswordToggleImage(button)
-        var filled = UIButton.Configuration.plain()
-        filled.baseForegroundColor = .placeholderText
-        filled.imagePlacement = .trailing
-        filled.imagePadding = 15
-        button.configuration = filled
-        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: 5, width: 25, height: 25)
-        button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
-        
-        self.rightView = button
-        self.rightViewMode = .always
-    }
+//    func createPasswordToggle(){
+//        let button = UIButton(type: .custom)
+//        setPasswordToggleImage(button)
+//        var filled = UIButton.Configuration.plain()
+//        filled.baseForegroundColor = .placeholderText
+//        filled.imagePlacement = .trailing
+//        filled.imagePadding = 15
+//        button.configuration = filled
+//        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: 5, width: 25, height: 25)
+//        button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
+//        
+//        self.rightView = button
+//        self.rightViewMode = .always
+//    }
     
     @objc func togglePasswordView(_ sender: Any) {
         self.isSecureTextEntry = !self.isSecureTextEntry

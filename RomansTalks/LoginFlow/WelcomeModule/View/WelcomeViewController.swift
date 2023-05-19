@@ -96,7 +96,7 @@ extension WelcomeViewController {
 extension WelcomeViewController {
     func setupSignInButton(button: UIButton) {
         button.layer.cornerRadius = 5
-        button.backgroundColor = .tintColor
+        //button.backgroundColor = .tintColor
         button.setTitleColor(.systemBackground, for: .normal)
         button.setTitle("SIGN IN", for: .normal)
         button.setTitle("SIGN IN", for: .highlighted)
@@ -107,7 +107,7 @@ extension WelcomeViewController {
     func setupPasswordTextField(textField: UITextField) {
         textField.placeholder = "password"
         textField.isSecureTextEntry = true
-        textField.createPasswordToggle()
+        //textField.createPasswordToggle()
         textField.borderStyle = .roundedRect
 //        textField.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -121,7 +121,7 @@ extension WelcomeViewController {
     func setupWelcomeLabel(label: UILabel){
         label.text = "WELCOME!"
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        label.textColor = .tintColor
+        //label.textColor = .tintColor
         label.textAlignment = .center
 //        label.translatesAutoresizingMaskIntoConstraints = false
     }

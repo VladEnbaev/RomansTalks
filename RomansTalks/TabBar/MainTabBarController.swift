@@ -42,8 +42,7 @@ extension MainTabBarController {
     
     func setupTabBar(){
         loadViewIfNeeded()
-        tabBar.backgroundImage = UIImage(color: R.Colors.background)
-        tabBar.shadowImage = UIImage(color: R.Colors.background)
+        setupAppearance()
         tabBar.clipsToBounds = true
         tabBar.barTintColor = R.Colors.background
         tabBar.itemWidth = 35
@@ -52,6 +51,16 @@ extension MainTabBarController {
         
         tabBar.tintColor = R.Colors.orange
         tabBar.unselectedItemTintColor = R.Colors.unselected
+    }
+    
+    // func started from ios 15 
+    private func setupAppearance(){
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundImage = UIImage(color: R.Colors.background)
+        tabBarAppearance.shadowImage = UIImage(color: R.Colors.background)
+        tabBar.standardAppearance = tabBarAppearance
+        tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
     private func drawTabBar() {

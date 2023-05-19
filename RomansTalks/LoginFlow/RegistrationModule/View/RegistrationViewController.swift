@@ -89,7 +89,7 @@ extension RegistrationViewController {
 extension RegistrationViewController {
     func setupCreateAccountButton(button: UIButton) {
         button.layer.cornerRadius = 5
-        button.backgroundColor = .tintColor
+        button.backgroundColor = .green
         button.setTitleColor(.systemBackground, for: .normal)
         button.setTitleColor(button.backgroundColor, for: .highlighted)
         button.setTitle("CREATE", for: .normal)
@@ -101,7 +101,7 @@ extension RegistrationViewController {
     func setupPasswordTextField(textField: UITextField) {
         textField.placeholder = "password"
         textField.isSecureTextEntry = true
-        textField.createPasswordToggle()
+        //textField.createPasswordToggle()
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -109,7 +109,7 @@ extension RegistrationViewController {
     func setupConformPasswordTextField(textField: UITextField) {
         textField.placeholder = "confirm your password"
         textField.isSecureTextEntry = true
-        textField.createPasswordToggle()
+        //textField.createPasswordToggle()
         textField.borderStyle = .roundedRect
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
