@@ -32,6 +32,7 @@
 		FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */; };
 		FFA9882229D07B2D0045F449 /* AdditionalInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9882129D07B2D0045F449 /* AdditionalInfoPresenter.swift */; };
 		FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */; };
+		FFD138BB2A27595A001B8233 /* UIViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD138BA2A27595A001B8233 /* UIViewController + ext.swift */; };
 		FFD38D7F29F0390400AF8F91 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */; };
 		FFD38D8129F0391400AF8F91 /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */; };
 		FFE5BAF42A16AE23005EADB7 /* UIImage + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */; };
@@ -110,6 +111,7 @@
 		FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+setup.swift"; sourceTree = "<group>"; };
 		FFA9882129D07B2D0045F449 /* AdditionalInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoPresenter.swift; sourceTree = "<group>"; };
 		FFA9882329D07B3E0045F449 /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
+		FFD138BA2A27595A001B8233 /* UIViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + ext.swift"; sourceTree = "<group>"; };
 		FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
 		FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + ext.swift"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				FF5774282A13BB72008582F3 /* UIColor + ext.swift */,
 				FF57742A2A13D925008582F3 /* UILabel + ext.swift */,
 				FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */,
+				FFD138BA2A27595A001B8233 /* UIViewController + ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				FFF0DCA029C796AF00658190 /* WelcomePresenter.swift in Sources */,
 				FFD38D8129F0391400AF8F91 /* AccountPresenter.swift in Sources */,
 				FFF0DC8429C4F6F300658190 /* CommentsTableViewCell.swift in Sources */,
+				FFD138BB2A27595A001B8233 /* UIViewController + ext.swift in Sources */,
 				FFF0DCAC29CA03CB00658190 /* RegistrationViewController.swift in Sources */,
 				FFF0DC8829C646FD00658190 /* Resources.swift in Sources */,
 				FFE5BAF42A16AE23005EADB7 /* UIImage + ext.swift in Sources */,
