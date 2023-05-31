@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainTabBarController: UITabBarController{
     
@@ -18,7 +19,7 @@ class MainTabBarController: UITabBarController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let newTabBarHeight : CGFloat = 125
+        let newTabBarHeight : CGFloat =  self.view.bounds.height * 0.15
         
         var newFrame = tabBar.frame
         newFrame.size.height = newTabBarHeight
@@ -26,7 +27,7 @@ class MainTabBarController: UITabBarController{
         
         tabBar.frame = newFrame
         
-        drawTabBar()
+        drawTabBarRectangle()
     }
     
 }
@@ -38,17 +39,17 @@ extension MainTabBarController {
         viewControllers[0].tabBarItem.image = R.Images.Icons.TabBar.home
         viewControllers[1].tabBarItem.image = R.Images.Icons.TabBar.addPhoto
         viewControllers[2].tabBarItem.image = R.Images.Icons.TabBar.profile
+        setupTabBar()
     }
     
-    func setupTabBar(){
+    private func setupTabBar(){
         loadViewIfNeeded()
         setupAppearance()
         tabBar.clipsToBounds = true
         tabBar.barTintColor = R.Colors.background
-        tabBar.itemWidth = 35
-        tabBar.itemSpacing = 83
+        tabBar.itemWidth = 60
+//        tabBar.itemSpacing = 83
         tabBar.itemPositioning = .centered
-        
         tabBar.tintColor = R.Colors.orange
         tabBar.unselectedItemTintColor = R.Colors.unselected
     }
@@ -63,14 +64,26 @@ extension MainTabBarController {
         tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
-    private func drawTabBar() {
+    private func drawTabBarRectangle() {
         let offsetHorisontal : CGFloat = 21
-        let topOffset : CGFloat = 16
-        let bottomOffset : CGFloat = 34
-        let width = tabBar.bounds.width - offsetHorisontal * 2
-        let height = tabBar.bounds.height - topOffset - bottomOffset
-        let rectX = tabBar.bounds.midX - width / 2
-        let rectY = tabBar.bounds.minY + height / 2 - bottomOffset
+//        let topOffset : CGFloat = 16
+//        let bottomOffset : CGFloat = view.bounds.height * 0.04
+        let width : CGFloat  = tabBar.bounds.width - offsetHorisontal * 2
+        let height : CGFloat = 75
+        let rectX : CGFloat = tabBar.bounds.midX - width / 2
+        let rectY : CGFloat = tabBar.bounds.midY - height / 2
+        
+        let bottomSafeAreaOffset = view.safeAreaInsets.bottom / 2
+        let tabBarButtonsOffset : CGFloat = 6 + bottomSafeAreaOffset
+        
+        let items = tabBar.items ?? []
+        for item in items
+        {
+           item.imageInsets = UIEdgeInsets(top: tabBarButtonsOffset,
+                                           left: 0,
+                                           bottom: -tabBarButtonsOffset,
+                                           right: 0)
+        }
         
         let roundLayer = CAShapeLayer()
         
@@ -91,5 +104,24 @@ extension MainTabBarController {
         }
         
         self.roundedRectLayer = roundLayer
+    }
+    
+    fileprivate func returnMocTabBarVC() -> MainTabBarController {
+        let mocTabBar = MainTabBarController()
+        let mocVC = UIViewController()
+        mocVC.view.backgroundColor = .gray
+        mocTabBar.setupViewControllers([
+            mocVC,
+            UIViewController(),
+            UIViewController(),
+        ])
+        mocTabBar.setupTabBar()
+        return mocTabBar
+    }
+}
+
+struct ViewControllerProvider: PreviewProvider {
+    static var previews: some View {
+        MainTabBarController().returnMocTabBarVC().showPreview()
     }
 }
