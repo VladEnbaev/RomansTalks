@@ -71,26 +71,37 @@ extension MainViewController : UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.postCellID) as? PostTableViewCell,
            let presenterPosts = self.posts{
             cell.configure(with: presenterPosts[indexPath.row])
+            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
         
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.translatesAutoresizingMaskIntoConstraints = false
-//        cell.setNeedsLayout()
-//        cell.layoutIfNeeded()
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 296 + PostTableViewCell.Constants.cellsOffset.rawValue + PostTableViewCell.Constants.shadowRadius.rawValue
-//    }
 }
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailPost = posts?[indexPath.row] else { return }
         presenter.didTappedOnPost(post: detailPost)
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        // Опциональная привязка, проверка на nil
+        // TableViewCellForService – это ваш класс
+        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+            UIView.animate(withDuration: 0.2) {
+                cell.curvedView.alpha = 0.4
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        // Опциональная привязка, проверка на nil
+        // TableViewCellForService – это ваш класс
+        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+            UIView.animate(withDuration: 0.2) {
+                cell.curvedView.alpha = 1
+            }
+        }
     }
 }
 //MARK: - Create UI

@@ -48,7 +48,7 @@ extension MainTabBarController {
         tabBar.clipsToBounds = true
         tabBar.barTintColor = R.Colors.background
         tabBar.itemWidth = 60
-//        tabBar.itemSpacing = 83
+        tabBar.itemSpacing = 83
         tabBar.itemPositioning = .centered
         tabBar.tintColor = R.Colors.orange
         tabBar.unselectedItemTintColor = R.Colors.unselected
@@ -64,26 +64,30 @@ extension MainTabBarController {
         tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
-    private func drawTabBarRectangle() {
-        let offsetHorisontal : CGFloat = 21
-//        let topOffset : CGFloat = 16
-//        let bottomOffset : CGFloat = view.bounds.height * 0.04
-        let width : CGFloat  = tabBar.bounds.width - offsetHorisontal * 2
-        let height : CGFloat = 75
-        let rectX : CGFloat = tabBar.bounds.midX - width / 2
-        let rectY : CGFloat = tabBar.bounds.midY - height / 2
-        
+    private func setupTabBarItems(offset: CGFloat, rectangleHeight: CGFloat) {
         let bottomSafeAreaOffset = view.safeAreaInsets.bottom / 2
-        let tabBarButtonsOffset : CGFloat = 6 + bottomSafeAreaOffset
+        let tabBarButtonsOffset : CGFloat =  bottomSafeAreaOffset - 3
         
         let items = tabBar.items ?? []
-        for item in items
-        {
+        for item in items {
            item.imageInsets = UIEdgeInsets(top: tabBarButtonsOffset,
                                            left: 0,
                                            bottom: -tabBarButtonsOffset,
                                            right: 0)
         }
+    }
+    
+    
+    private func drawTabBarRectangle() {
+        let offsetHorisontal : CGFloat = 21
+        let offsetFromSafeArea : CGFloat = 7
+        let width : CGFloat  = tabBar.bounds.width - offsetHorisontal * 2
+        let height : CGFloat = 75
+        let rectX : CGFloat = tabBar.bounds.midX - width / 2
+        let rectY : CGFloat = tabBar.bounds.midY - height / 2 - offsetFromSafeArea
+        
+        let buttonsOffsetFromSafeArea = offsetFromSafeArea
+        setupTabBarItems(offset: offsetFromSafeArea, rectangleHeight: height)
         
         let roundLayer = CAShapeLayer()
         
