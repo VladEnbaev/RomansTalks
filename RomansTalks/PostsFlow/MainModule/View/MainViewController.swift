@@ -26,6 +26,9 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         title = "Posts"
         createTableView()
+        let backIcon = R.Images.Icons.back
+        let barItem = UIBarButtonItem(title: "", image: backIcon, target: nil, action: nil)
+        navigationItem.backBarButtonItem = barItem
     }
 }
 

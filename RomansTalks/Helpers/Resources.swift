@@ -40,6 +40,9 @@ enum Resources {
             static let share = UIImage(named: "shareIcon") ?? UIImage()
             static let like = UIImage(named: "likeIcon") ?? UIImage()
             static let coment = UIImage(named: "comentIcon") ?? UIImage()
+            static let back = UIImage(named: "backButtonIcon") ?? UIImage()
+            static let seeMore = UIImage(named: "seeMoreIcon") ?? UIImage()
+            static let messages = UIImage(named: "dmIcon") ?? UIImage()
             
             enum TabBar {
                 static let addPhoto = UIImage(named: "addPhotoIcon") ?? UIImage()

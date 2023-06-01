@@ -26,6 +26,7 @@ class DetailPostViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         createTableView()
+        title = "Comments"
     }
     
 }

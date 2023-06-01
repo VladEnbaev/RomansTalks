@@ -27,6 +27,7 @@
 		FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */; };
 		FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */; };
 		FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD929C0C64C001B1F8D /* NetworkService.swift */; };
+		FF8894972A27B913000F6D8B /* PostsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8894962A27B913000F6D8B /* PostsNavigationController.swift */; };
 		FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */; };
 		FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881A29CF810B0045F449 /* BaseViewController.swift */; };
 		FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */; };
@@ -106,6 +107,7 @@
 		FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFlowModulesBuilder.swift; sourceTree = "<group>"; };
 		FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FF680BD929C0C64C001B1F8D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF8894962A27B913000F6D8B /* PostsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNavigationController.swift; sourceTree = "<group>"; };
 		FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toggle.swift"; sourceTree = "<group>"; };
 		FFA9881A29CF810B0045F449 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+setup.swift"; sourceTree = "<group>"; };
@@ -280,6 +282,14 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		FF8894982A27B957000F6D8B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FF8894962A27B913000F6D8B /* PostsNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		FFA9880E29CF53030045F449 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +422,7 @@
 		FFF0DC8B29C724F600658190 /* PostsFlow */ = {
 			isa = PBXGroup;
 			children = (
+				FF8894982A27B957000F6D8B /* Navigation */,
 				FFF0DC9429C78BC200658190 /* Builder */,
 				FFF0DC9229C78B6C00658190 /* Coordinator */,
 				FF680BD129C0A3EE001B1F8D /* MainModule */,
@@ -843,6 +854,7 @@
 				FFF0DC9629C792E000658190 /* AppCoordinator.swift in Sources */,
 				FF5774322A1428A3008582F3 /* UIView + ext.swift in Sources */,
 				FF680BD029C09D71001B1F8D /* PostModel.swift in Sources */,
+				FF8894972A27B913000F6D8B /* PostsNavigationController.swift in Sources */,
 				FF680B9E29C09CCE001B1F8D /* AppDelegate.swift in Sources */,
 				FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */,
 				FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */,

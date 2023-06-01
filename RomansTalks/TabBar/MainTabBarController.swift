@@ -42,7 +42,7 @@ extension MainTabBarController {
         setupTabBar()
     }
     
-    private func setupTabBar(){
+    private func setupTabBar() {
         loadViewIfNeeded()
         setupAppearance()
         tabBar.clipsToBounds = true
@@ -64,7 +64,7 @@ extension MainTabBarController {
         tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
-    private func setupTabBarItems(offset: CGFloat, rectangleHeight: CGFloat) {
+    private func setupTabBarItems() {
         let bottomSafeAreaOffset = view.safeAreaInsets.bottom / 2
         let tabBarButtonsOffset : CGFloat =  bottomSafeAreaOffset - 3
         
@@ -86,8 +86,7 @@ extension MainTabBarController {
         let rectX : CGFloat = tabBar.bounds.midX - width / 2
         let rectY : CGFloat = tabBar.bounds.midY - height / 2 - offsetFromSafeArea
         
-        let buttonsOffsetFromSafeArea = offsetFromSafeArea
-        setupTabBarItems(offset: offsetFromSafeArea, rectangleHeight: height)
+        setupTabBarItems()
         
         let roundLayer = CAShapeLayer()
         

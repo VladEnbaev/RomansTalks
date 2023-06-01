@@ -18,7 +18,8 @@ class TabBarBuilder: TabBarBuilderProtocol {
         let tabBarController = MainTabBarController()
 //        tabBarController.setupTabBar()
         //postsFlow
-        let navControllerPostsFlow = UINavigationController()
+        let navControllerPostsFlow = PostsNavigationControlller()
+        navControllerPostsFlow.setup()
         let moduleBuilderPostsFlow = PostsFeedFlowModulesBuilder()
         let coordinatorPostsFlow = PostsFeedFlowCoordinator(navigationController: navControllerPostsFlow,
                                                             moduleBuilder: moduleBuilderPostsFlow)
