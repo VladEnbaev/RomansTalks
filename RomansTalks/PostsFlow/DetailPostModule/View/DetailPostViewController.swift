@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol DetailPostViewProtocol : AnyObject{
     var presenter : DetailPostPresenterProtocol! { get set }
@@ -100,11 +101,10 @@ extension DetailPostViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return self.view.bounds.height / 2
-        } else {
+        if indexPath.row != 0 {
             return self.view.bounds.height / 3
         }
+        return 300
     }
 }
 
@@ -120,6 +120,7 @@ extension DetailPostViewController {
         //table view
         commentsTableView.dataSource = self
         commentsTableView.delegate = self
+        commentsTableView.separatorStyle = .none
         commentsTableView.register(DetailPostTableViewCell.self,
                                    forCellReuseIdentifier: Resources.Identifiers.detailPostCellID)
         commentsTableView.register(CommentsTableViewCell.self,
@@ -130,5 +131,21 @@ extension DetailPostViewController {
         commentsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         commentsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         commentsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    }
+}
+extension DetailPostViewController {
+    fileprivate static func returnMocDetailVC() -> DetailPostViewController {
+        let detail = DetailPostViewController()
+        detail.post = Post(userId: 1, id: 2, title: "fdkfkdlfkd", body: "ldfsalkfsdlakfldsaklsdklafkdlkafslfdklaskf")
+        let comment = Comment(postId: 2, id: 3, name: "name", email: "email", body: "fksla;kfjfl;sjkal;fajfls;ajsldjfal;sdj;lafalfjaldsa;fjdsa")
+        detail.comments = [comment, comment, comment, comment]
+        return detail
+    }
+}
+
+
+struct DetailViewControllerProvider: PreviewProvider {
+    static var previews: some View {
+        DetailPostViewController.returnMocDetailVC().showPreview()
     }
 }

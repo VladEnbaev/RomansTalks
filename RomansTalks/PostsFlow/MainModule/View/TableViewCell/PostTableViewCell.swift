@@ -30,7 +30,10 @@ class PostTableViewCell: UITableViewCell {
     var likesButton = PostButton()
     var commentsButton = PostButton()
     
-    
+    var userNamesStackView = UIStackView()
+    var userInfoStackView =  UIStackView()
+    var activityStackView = UIStackView()
+    var textStackView =     UIStackView()
     
     func configure(with post: Post){
         self.post = post
@@ -46,39 +49,19 @@ class PostTableViewCell: UITableViewCell {
         setupProilePhotoImageView()
         setupCurvedView()
         
+        setupUserNamesStackView()
+        setupUserInfoStackView()
+        setupActivityStackView()
+        setupTextStackView()
+        
         constraintViews()
         
     }
-}
-private extension PostTableViewCell {
-    func constraintViews(){
-        
-        let userNamesStackView = UIStackView(arrangedSubviews: [usernameLable, emailLable])
-        userNamesStackView.spacing = 3
-        userNamesStackView.axis = .vertical
-        userNamesStackView.distribution = .fillEqually
-        userNamesStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let userInfoStackView = UIStackView(arrangedSubviews: [profilePhotoImageView, userNamesStackView])
-        userInfoStackView.spacing = 21
-        userInfoStackView.axis = .horizontal
-        userInfoStackView.distribution = .fill
-        userInfoStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let activityStackView = UIStackView(arrangedSubviews: [likesButton, commentsButton, shareButton])
-        activityStackView.spacing = 8
-        activityStackView.axis = .horizontal
-        activityStackView.distribution = .fillProportionally
-        activityStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let labelsStackView = UIStackView(arrangedSubviews: [titleLabel, bodyLabel])
-        labelsStackView.spacing = 8
-        labelsStackView.axis = .vertical
-        labelsStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+    
+    private func constraintViews(){
         contentView.addSubview(curvedView)
         curvedView.addSubview(userInfoStackView)
-        curvedView.addSubview(labelsStackView)
+        curvedView.addSubview(textStackView)
         curvedView.addSubview(activityStackView)
         
         NSLayoutConstraint.activate( [
@@ -94,16 +77,48 @@ private extension PostTableViewCell {
             userInfoStackView.leadingAnchor.constraint(equalTo: curvedView.leadingAnchor, constant: Constants.contentOffset.rawValue),
             userInfoStackView.trailingAnchor.constraint(equalTo: curvedView.trailingAnchor, constant: -Constants.contentOffset.rawValue),
             
-            labelsStackView.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 15),
-            labelsStackView.leadingAnchor.constraint(equalTo: curvedView.leadingAnchor, constant: Constants.contentOffset.rawValue),
-            labelsStackView.trailingAnchor.constraint(equalTo: curvedView.trailingAnchor, constant: -Constants.contentOffset.rawValue),
+            textStackView.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 15),
+            textStackView.leadingAnchor.constraint(equalTo: curvedView.leadingAnchor, constant: Constants.contentOffset.rawValue),
+            textStackView.trailingAnchor.constraint(equalTo: curvedView.trailingAnchor, constant: -Constants.contentOffset.rawValue),
             
-            activityStackView.topAnchor.constraint(equalTo: labelsStackView.bottomAnchor, constant: 15),
+            activityStackView.topAnchor.constraint(equalTo: textStackView.bottomAnchor, constant: 15),
             activityStackView.leadingAnchor.constraint(equalTo: curvedView.leadingAnchor, constant: Constants.contentOffset.rawValue),
             activityStackView.widthAnchor.constraint(equalToConstant: 153),
             activityStackView.bottomAnchor.constraint(equalTo: curvedView.bottomAnchor, constant: -15)
         ])
     }
+    
+    func setupUserNamesStackView() {
+        userNamesStackView = UIStackView(arrangedSubviews: [usernameLable, emailLable])
+        userNamesStackView.spacing = 3
+        userNamesStackView.axis = .vertical
+        userNamesStackView.distribution = .fillEqually
+        userNamesStackView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setupUserInfoStackView() {
+        userInfoStackView = UIStackView(arrangedSubviews: [profilePhotoImageView, userNamesStackView])
+        userInfoStackView.spacing = 21
+        userInfoStackView.axis = .horizontal
+        userInfoStackView.distribution = .fill
+        userInfoStackView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setupActivityStackView() {
+        activityStackView = UIStackView(arrangedSubviews: [likesButton, commentsButton, shareButton])
+        activityStackView.spacing = 8
+        activityStackView.axis = .horizontal
+        activityStackView.distribution = .fillProportionally
+        activityStackView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setupTextStackView() {
+        textStackView = UIStackView(arrangedSubviews: [titleLabel, bodyLabel])
+        textStackView.spacing = 8
+        textStackView.axis = .vertical
+        textStackView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     
     func setupTitleLabel() {
         titleLabel.text = post.title
