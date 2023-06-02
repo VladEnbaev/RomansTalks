@@ -15,6 +15,7 @@ class PostTableViewCell: UITableViewCell {
         case shadowRadius = 3
         case cellsOffset  = 8
         case contentOffset = 20
+        case contentOffsetBottom = 15
         case profileImageSideLenght = 35
     }
     
@@ -25,7 +26,7 @@ class PostTableViewCell: UITableViewCell {
     var profilePhotoImageView = UIImageView()
     var titleLabel = UILabel()
     var bodyLabel = UILabel()
-    var curvedView = UIView()
+    var curvedView = PostShadowView(shadowRadius: Constants.shadowRadius.rawValue)
     var shareButton = PostButton()
     var likesButton = PostButton()
     var commentsButton = PostButton()
@@ -47,7 +48,6 @@ class PostTableViewCell: UITableViewCell {
         setupUsernameLabel()
         setupTitleLabel()
         setupProilePhotoImageView()
-        setupCurvedView()
         
         setupUserNamesStackView()
         setupUserInfoStackView()
@@ -135,28 +135,15 @@ class PostTableViewCell: UITableViewCell {
         bodyLabel.numberOfLines = 5
     }
     
-    func setupCurvedView() {
-        curvedView.backgroundColor = Resources.Colors.cellsBackground
-        curvedView.translatesAutoresizingMaskIntoConstraints = false
-        
-        curvedView.layer.cornerRadius = 20
-        curvedView.layer.shadowColor = UIColor.black.cgColor
-        curvedView.layer.shadowOpacity = 0.125
-        curvedView.layer.shadowOffset = .zero
-        curvedView.layer.shadowRadius = Constants.shadowRadius.rawValue
-        curvedView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        curvedView.layer.masksToBounds = false
-    }
-    
     func setupUsernameLabel() {
-        usernameLable.text = "username" // post.user?.username
+        usernameLable.text =  post.user?.username ?? "username"
         usernameLable.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         usernameLable.numberOfLines = 1
         usernameLable.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupEmailLabel() {
-        emailLable.text = "email@gmail.com" //post.user?.email ?? "email@gmail.com"
+        emailLable.text = post.user?.email ?? "email@gmail.com"
         emailLable.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         emailLable.textColor = Resources.Colors.lightGrey
         emailLable.translatesAutoresizingMaskIntoConstraints = false

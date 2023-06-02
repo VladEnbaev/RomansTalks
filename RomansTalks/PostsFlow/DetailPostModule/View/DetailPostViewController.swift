@@ -99,13 +99,6 @@ extension DetailPostViewController : UITableViewDataSource {
         }
         return returnedCell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row != 0 {
-            return self.view.bounds.height / 3
-        }
-        return 300
-    }
 }
 
 extension DetailPostViewController : UITableViewDelegate {
@@ -128,7 +121,8 @@ extension DetailPostViewController {
         self.view.addSubview(commentsTableView)
         commentsTableView.translatesAutoresizingMaskIntoConstraints = false
         commentsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        commentsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        commentsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                  constant: -MainTabBarController.tabBarHeight).isActive = true
         commentsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         commentsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     }

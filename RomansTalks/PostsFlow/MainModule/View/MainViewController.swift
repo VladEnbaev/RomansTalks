@@ -24,14 +24,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        title = "Posts"
+        title = "Posts Feed"
         createTableView()
         let backIcon = R.Images.Icons.back
         let barItem = UIBarButtonItem(title: "", image: backIcon, target: nil, action: nil)
         navigationItem.backBarButtonItem = barItem
     }
 }
-
+//MARK: -MainViewProtocol
 extension MainViewController : MainViewProtocol {
     func success(with posts: [Post]) {
         self.posts = posts
@@ -63,7 +63,7 @@ extension MainViewController : MainViewProtocol {
     }
 
 }
-
+//MARK: -UITableViewDataSource
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts?.count ?? 0
@@ -81,6 +81,8 @@ extension MainViewController : UITableViewDataSource {
         
     }
 }
+
+//MARK: -UITableViewDelegate
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailPost = posts?[indexPath.row] else { return }
@@ -122,7 +124,8 @@ extension MainViewController {
         view.addSubview(postsTableView)
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                               constant: -MainTabBarController.tabBarHeight).isActive = true
         postsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         postsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     }

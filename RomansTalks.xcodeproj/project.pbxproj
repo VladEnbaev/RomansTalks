@@ -28,6 +28,7 @@
 		FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */; };
 		FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD929C0C64C001B1F8D /* NetworkService.swift */; };
 		FF8894972A27B913000F6D8B /* PostsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8894962A27B913000F6D8B /* PostsNavigationController.swift */; };
+		FF88949A2A29FD76000F6D8B /* PostCurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8894992A29FD76000F6D8B /* PostCurvedView.swift */; };
 		FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */; };
 		FFA9881B29CF810B0045F449 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881A29CF810B0045F449 /* BaseViewController.swift */; };
 		FFA9881D29CF88B80045F449 /* UIStackView+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */; };
@@ -108,6 +109,7 @@
 		FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FF680BD929C0C64C001B1F8D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FF8894962A27B913000F6D8B /* PostsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNavigationController.swift; sourceTree = "<group>"; };
+		FF8894992A29FD76000F6D8B /* PostCurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCurvedView.swift; sourceTree = "<group>"; };
 		FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toggle.swift"; sourceTree = "<group>"; };
 		FFA9881A29CF810B0045F449 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FFA9881C29CF88B80045F449 /* UIStackView+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+setup.swift"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				FF57742E2A1426B4008582F3 /* PostButton.swift */,
+				FF8894992A29FD76000F6D8B /* PostCurvedView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFF0DC9929C7964100658190 /* LoginFlowCoordinator.swift in Sources */,
+				FF88949A2A29FD76000F6D8B /* PostCurvedView.swift in Sources */,
 				FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */,
 				FF57742B2A13D925008582F3 /* UILabel + ext.swift in Sources */,
 				FFF0DC8629C645E800658190 /* DetailPostTableViewCell.swift in Sources */,

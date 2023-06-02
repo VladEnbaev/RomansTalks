@@ -6,39 +6,82 @@
 //
 
 import UIKit
+import SnapKit
 
 class CommentsTableViewCell: UITableViewCell {
+    
+    enum Constants : CGFloat{
+        case shadowRadius = 3
+        case cellsOffset  = 8
+        case contentOffsetHorizontal = 20
+        case contentOffsetVertical = 15
+        case profileImageSideLenght = 35
+    }
+    
+    var comment : Comment!
 
     var nameLabel = UILabel()
     var emailLabel = UILabel()
     var bodyLabel = UILabel()
     
+    var stackView = UIStackView()
+    var curvedView = PostShadowView(shadowRadius: 2)
+    
     func configure(with comment: Comment){
-        //title label
+        self.comment = comment
+        
+        setupNameLabel()
+        setupBodyLabel()
+        setupEmailLabel()
+        setupStackView()
+        
+        constraintViews()
+    }
+    
+    func setupNameLabel() {
         nameLabel.text = comment.name
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textAlignment = .left
         nameLabel.numberOfLines = 0
         nameLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        //body label
+    }
+    
+    func setupBodyLabel() {
         bodyLabel.text = comment.body
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textAlignment = .left
         bodyLabel.numberOfLines = 0
         
-        // email label
+    }
+    
+    func setupEmailLabel() {
         emailLabel.text = comment.email
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.textAlignment = .left
         emailLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy)
-        //layout
-        let stackView = UIStackView(arrangedSubviews: [emailLabel, nameLabel, bodyLabel])
+    }
+    
+    func setupStackView() {
+        stackView = UIStackView(arrangedSubviews: [emailLabel, nameLabel, bodyLabel])
         stackView.spacing = 8
         stackView.axis = .vertical
-        self.contentView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
-        stackView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.9).isActive = true
     }
+    
+    func constraintViews() {
+        curvedView.addSubview(stackView)
+        contentView.addSubview(curvedView)
+        
+        curvedView.snp.makeConstraints() { make in
+            make.trailing.leading.equalToSuperview().inset(Constants.contentOffsetHorizontal.rawValue)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Constants.shadowRadius.rawValue)
+        }
+        
+        stackView.snp.makeConstraints() { make in
+            make.trailing.leading.equalToSuperview().inset(Constants.contentOffsetHorizontal.rawValue)
+            make.top.bottom.equalToSuperview().inset(Constants.contentOffsetVertical.rawValue)
+        }
+    }
+    
 }

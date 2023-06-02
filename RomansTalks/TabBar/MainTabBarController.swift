@@ -10,6 +10,8 @@ import SwiftUI
 
 class MainTabBarController: UITabBarController{
     
+    private(set) static var tabBarHeight : CGFloat = 125
+    
     var roundedRectLayer : CAShapeLayer? = nil
     
     override func viewDidLoad() {
@@ -19,7 +21,8 @@ class MainTabBarController: UITabBarController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let newTabBarHeight : CGFloat =  self.view.bounds.height * 0.15
+        let newTabBarHeight : CGFloat = self.view.bounds.height * 0.15
+        MainTabBarController.tabBarHeight = newTabBarHeight
         
         var newFrame = tabBar.frame
         newFrame.size.height = newTabBarHeight
