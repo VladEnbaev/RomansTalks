@@ -31,6 +31,7 @@ enum Resources {
         static let background = UIColor.white
         static let cellsBackground = UIColor(hexString: "FCFCFC")
         static let separator = UIColor(hexString: "#E8ECEF")
+        static let backArrowColor = UIColor(hexString: "292D32")
     }
     
     enum Images{

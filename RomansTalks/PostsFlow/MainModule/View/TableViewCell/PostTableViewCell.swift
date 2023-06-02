@@ -38,6 +38,7 @@ class PostTableViewCell: UITableViewCell {
     
     func configure(with post: Post){
         self.post = post
+        selectionStyle = .none
         
         setupLikeButton()
         setupShareButton()

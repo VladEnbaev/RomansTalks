@@ -57,14 +57,17 @@ extension MainTabBarController {
         tabBar.unselectedItemTintColor = R.Colors.unselected
     }
     
-    // func started from ios 15 
     private func setupAppearance(){
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()
         tabBarAppearance.backgroundImage = UIImage(color: R.Colors.background)
         tabBarAppearance.shadowImage = UIImage(color: R.Colors.background)
         tabBar.standardAppearance = tabBarAppearance
-        tabBar.scrollEdgeAppearance = tabBarAppearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = tabBarAppearance
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     private func setupTabBarItems() {
@@ -73,10 +76,10 @@ extension MainTabBarController {
         
         let items = tabBar.items ?? []
         for item in items {
-           item.imageInsets = UIEdgeInsets(top: tabBarButtonsOffset,
-                                           left: 0,
-                                           bottom: -tabBarButtonsOffset,
-                                           right: 0)
+            item.imageInsets = UIEdgeInsets(top: tabBarButtonsOffset,
+                                            left: 0,
+                                            bottom: -tabBarButtonsOffset,
+                                            right: 0)
         }
     }
     
@@ -99,7 +102,7 @@ extension MainTabBarController {
                                height: height)
         
         let bezierPath = UIBezierPath(roundedRect: rectangle, cornerRadius: 20)
-                                      
+        
         roundLayer.path = bezierPath.cgPath
         roundLayer.fillColor = R.Colors.darkGrey.cgColor
         
@@ -111,7 +114,10 @@ extension MainTabBarController {
         
         self.roundedRectLayer = roundLayer
     }
-    
+}
+
+//MARK: - SwiftUI Preview
+extension MainTabBarController {
     fileprivate func returnMocTabBarVC() -> MainTabBarController {
         let mocTabBar = MainTabBarController()
         let mocVC = UIViewController()

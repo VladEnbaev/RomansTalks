@@ -74,17 +74,16 @@ extension DetailPostViewController : DetailPostViewProtocol {
 
 extension DetailPostViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let commentsCount = self.comments?.count, self.post != nil{
-            return 1 + commentsCount
-        } else if self.post != nil{
+        if section == 0{
             return 1
+        } else {
+            return comments?.count ?? 0
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var returnedCell = UITableViewCell()
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             if let inheritedPostCell = commentsTableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.detailPostCellID) as? DetailPostTableViewCell,
                let post = self.post{
                 inheritedPostCell.configure(with: post)
@@ -93,18 +92,63 @@ extension DetailPostViewController : UITableViewDataSource {
         } else {
             if let comments = self.comments,
                let commentCell = commentsTableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.commentCellID) as? CommentsTableViewCell {
-                commentCell.configure(with: comments[indexPath.row - 1])
+                commentCell.configure(with: comments[indexPath.row])
                 returnedCell = commentCell
             }
         }
         return returnedCell
     }
+    
+    //sections
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return nil
+        } else {
+            return "Comments"
+        }
+    }
+
+    // Метод позволяет работать с секцией
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // Изменяем фон секции
+        view.tintColor = .clear
+
+        // Изменяем цвет текста для секции
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .gray
+    }
+
 }
 
 extension DetailPostViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // Количество секций
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        // Опциональная привязка, проверка на nil
+        // TableViewCellForService – это ваш класс
+        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+            UIView.animate(withDuration: 0.2) {
+                cell.curvedView.alpha = 0.4
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        // Опциональная привязка, проверка на nil
+        // TableViewCellForService – это ваш класс
+        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+            UIView.animate(withDuration: 0.2) {
+                cell.curvedView.alpha = 1
+            }
+        }
+    }
+    
 }
 
 //MARK: - Create UI
@@ -127,6 +171,8 @@ extension DetailPostViewController {
         commentsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     }
 }
+
+//MARK: - SwiftUI Preview
 extension DetailPostViewController {
     fileprivate static func returnMocDetailVC() -> DetailPostViewController {
         let detail = DetailPostViewController()

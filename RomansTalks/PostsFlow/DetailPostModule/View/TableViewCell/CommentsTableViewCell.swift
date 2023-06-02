@@ -30,6 +30,8 @@ class CommentsTableViewCell: UITableViewCell {
     func configure(with comment: Comment){
         self.comment = comment
         
+        selectionStyle = .none
+        
         setupNameLabel()
         setupBodyLabel()
         setupEmailLabel()

@@ -25,10 +25,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         title = "Posts Feed"
-        createTableView()
-        let backIcon = R.Images.Icons.back
-        let barItem = UIBarButtonItem(title: "", image: backIcon, target: nil, action: nil)
-        navigationItem.backBarButtonItem = barItem
+        
+        setupPostsTableView()
+        setupNavigationBar()
     }
 }
 //MARK: -MainViewProtocol
@@ -74,7 +73,6 @@ extension MainViewController : UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.postCellID) as? PostTableViewCell,
            let presenterPosts = self.posts{
             cell.configure(with: presenterPosts[indexPath.row])
-            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
@@ -93,7 +91,7 @@ extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         // Опциональная привязка, проверка на nil
         // TableViewCellForService – это ваш класс
-        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? DetailPostTableViewCell {
             UIView.animate(withDuration: 0.2) {
                 cell.curvedView.alpha = 0.4
             }
@@ -102,7 +100,7 @@ extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         // Опциональная привязка, проверка на nil
         // TableViewCellForService – это ваш класс
-        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? DetailPostTableViewCell {
             UIView.animate(withDuration: 0.2) {
                 cell.curvedView.alpha = 1
             }
@@ -111,13 +109,11 @@ extension MainViewController : UITableViewDelegate {
 }
 //MARK: - Create UI
 extension MainViewController {
-    func createTableView() {
+    func setupPostsTableView() {
         //table view
         postsTableView.dataSource = self
         postsTableView.delegate = self
         postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: Resources.Identifiers.postCellID)
-//        postsTableView.sectionHeaderHeight = UITableView.automaticDimension;
-//        postsTableView.estimatedSectionHeaderHeight = 0;
         
         postsTableView.separatorStyle = .none
         
@@ -128,5 +124,12 @@ extension MainViewController {
                                                constant: -MainTabBarController.tabBarHeight).isActive = true
         postsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         postsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    }
+    
+    func setupNavigationBar() {
+        let backIcon = R.Images.Icons.back
+        let barItem = UIBarButtonItem(image: backIcon, style: .plain, target: nil, action: nil)
+        barItem.tintColor = R.Colors.backArrowColor
+        navigationItem.backBarButtonItem = barItem
     }
 }
