@@ -121,7 +121,7 @@ extension MainViewController {
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: -MainTabBarController.tabBarHeight).isActive = true
+                                               constant: 0).isActive = true
         postsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         postsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     }
