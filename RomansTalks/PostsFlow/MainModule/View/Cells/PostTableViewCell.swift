@@ -130,7 +130,7 @@ class PostTableViewCell: UITableViewCell {
     }
     func setupBodyLabel() {
         bodyLabel.text = post.body
-        titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        bodyLabel.font = UIFont.systemFont(ofSize: 15)
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textAlignment = .natural
         bodyLabel.numberOfLines = 5

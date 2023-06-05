@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol MainPresenterProrocol : AnyObject {
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: PostsFeedFlowCoordinatorProtocol)
     func getPosts()
     func didTappedOnPost(post: Post)
+    func loadImages()
 }
 
 class MainPresenter : MainPresenterProrocol {
@@ -24,6 +26,7 @@ class MainPresenter : MainPresenterProrocol {
         self.networkService = networkService
         self.view = view
         getPosts()
+        loadImages()
     }
 
     func getPosts(){
@@ -89,6 +92,33 @@ class MainPresenter : MainPresenterProrocol {
         }
     }
     
+    func loadImages() {
+        let imageIDs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        var images: [UIImage] = []
+        
+        let group = DispatchGroup()
+        
+        imageIDs.forEach {
+            group.enter()
+            networkService.loadImage(id: $0) {result in
+                switch result{
+                case .success(let image):
+                    images.append(image)
+                    group.leave()
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                    
+                }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.view?.success(with: images)
+            
+        }
+    }
+}
+
 //    func getUserWithId(_ id: Int, completion: ([User]) -> Void) {
 //        networkService.getUser(id: id) { result in
 //            DispatchQueue.main.async {
@@ -105,5 +135,3 @@ class MainPresenter : MainPresenterProrocol {
 //            }
 //        }
 //    }
-    
-}

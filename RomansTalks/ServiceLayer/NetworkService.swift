@@ -32,6 +32,7 @@ protocol NetworkServiceProtocol {
     func getUser(id: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void)
     func getPost(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void)
     func getUsers(completion: @escaping (Result<[User], Error>) -> Void)
+    func loadImage(id: Int, completion: @escaping (Result<UIImage, Error>) -> Void)
 }
 
 class NetworkService : NetworkServiceProtocol {
@@ -89,10 +90,15 @@ extension NetworkService {
         var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
         queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
         guard let queryURL = queryComponents?.url else { return }
-        
+        print(queryURL.absoluteURL)
         let task = URLSession.shared.dataTask(with: queryURL) { data, response, error in
-            if let data, let postImage = try? JSONDecoder().decode(PostImageModel.self, from: data) {
-                self.loadImageContent(url: postImage.url, completion: completion)
+            if let newData = data {
+                do {
+                    let postImage = try JSONDecoder().decode([PostImageModel].self, from: newData)
+                    self.loadImageContent(url: postImage[0].url, completion: completion)
+                } catch {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()
@@ -106,7 +112,7 @@ extension NetworkService {
                         let image = UIImage(data: recievedData){
                 completion(.success(image))
             } else {
-                var errorTemp = NSError(domain: url, code: 0)
+                let errorTemp = NSError(domain: url, code: 0)
                 print(errorTemp.localizedDescription)
                 completion(.failure(errorTemp))
             }

@@ -42,6 +42,7 @@ class CommentsTableViewCell: UITableViewCell {
     
     func setupNameLabel() {
         nameLabel.text = comment.name
+        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textAlignment = .left
         nameLabel.numberOfLines = 0
@@ -50,6 +51,7 @@ class CommentsTableViewCell: UITableViewCell {
     
     func setupBodyLabel() {
         bodyLabel.text = comment.body
+        bodyLabel.font = UIFont.systemFont(ofSize: 15)
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.textAlignment = .left
         bodyLabel.numberOfLines = 0
