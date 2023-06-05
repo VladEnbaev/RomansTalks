@@ -33,8 +33,7 @@ class MainPresenter : MainPresenterProrocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
-                    self.view?.success(with: posts)
-                    self.view?.startAnimation(false)
+                    self.getUsersAndCompareWithPosts(posts: posts)
                 case .failure(let error):
                     self.view?.startAnimation(false)
                     self.view?.failure(error: error)
@@ -42,6 +41,36 @@ class MainPresenter : MainPresenterProrocol {
             }
         }
     }
+    
+    private func getUsersAndCompareWithPosts(posts: [Post]) {
+        networkService.getUsers() { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let users):
+                    var postsWithUsers = self?.compare(posts: posts, users: users) ?? []
+                    // random feed
+                    postsWithUsers.shuffle()
+                    self?.view?.success(with: postsWithUsers)
+                    self?.view?.startAnimation(false)
+                case .failure(let error):
+                    self?.view?.startAnimation(false)
+                    self?.view?.failure(error: error)
+                }
+            }
+        }
+    }
+    private func compare(posts: [Post], users: [User]) -> [Post] {
+        var newPosts = posts
+        for i in 0..<posts.count {
+            for j in 0..<users.count {
+                if newPosts[i].userId == users[j].id {
+                    newPosts[i].user = users[j]
+                }
+            }
+        }
+        return newPosts
+    }
+    
     
     func didTappedOnPost(post: Post) {
         networkService.getUser(id: post.userId) { result in
