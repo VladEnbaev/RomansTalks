@@ -162,12 +162,16 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setupComentButton() {
-        commentsButton = PostButton(title: "10", image: R.Images.Icons.coment)
+        commentsButton = PostButton(title: "5", image: R.Images.Icons.coment)
         commentsButton.makeSystem(commentsButton)
     }
     
     func setupLikeButton() {
         likesButton = PostButton(title: "0", image: R.Images.Icons.like)
+        likesButton.addTarget(self, action: #selector(didTappedLike), for: .allEvents)
         likesButton.makeSystem(likesButton)
+    }
+    @objc func didTappedLike() {
+        likesButton.isOn = !likesButton.isOn
     }
 }

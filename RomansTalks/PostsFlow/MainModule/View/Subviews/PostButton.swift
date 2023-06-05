@@ -9,9 +9,19 @@ import UIKit
 import SnapKit
 
 class PostButton : UIButton {
-    private let iconView = UIImageView()
-    private let label = UILabel()
-    
+    private var iconView = UIImageView()
+    private var label = UILabel()
+    var isOn : Bool = false {
+        didSet {
+            if isOn {
+                iconView.image = R.Images.Icons.likeFilled.withTintColor(R.Colors.filledLikeColor, renderingMode: .alwaysOriginal)
+                label.text = "1"
+            } else {
+                iconView.image = R.Images.Icons.like.withTintColor(tintColor, renderingMode: .alwaysOriginal)
+                label.text = "0"
+            }
+        }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -50,14 +60,14 @@ extension PostButton {
     func constraintViews() {
         NSLayoutConstraint.activate([
             iconView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            iconView.heightAnchor.constraint(equalToConstant: 20),
-            iconView.widthAnchor.constraint(equalToConstant: 20),
+            iconView.heightAnchor.constraint(equalToConstant: 22),
+            iconView.widthAnchor.constraint(equalToConstant: 22),
             iconView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3),
             
             label.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 7),
-            label.heightAnchor.constraint(equalToConstant: 20),
-            label.widthAnchor.constraint(equalToConstant: 20),
+            label.heightAnchor.constraint(equalToConstant: 22),
+            label.widthAnchor.constraint(equalToConstant: 22),
         ])
     }
 }

@@ -32,11 +32,13 @@ enum Resources {
         static let cellsBackground = UIColor(hexString: "FCFCFC")
         static let separator = UIColor(hexString: "#E8ECEF")
         static let backArrowColor = UIColor(hexString: "292D32")
+        static let filledLikeColor = UIColor(hexString: "FF5B5B")
     }
     
     enum Images{
     
         enum Icons {
+            static let likeFilled = UIImage(named: "likeIconFilled") ?? UIImage()
             static let more = UIImage(named: "moreIcon") ?? UIImage()
             static let share = UIImage(named: "shareIcon") ?? UIImage()
             static let like = UIImage(named: "likeIcon") ?? UIImage()

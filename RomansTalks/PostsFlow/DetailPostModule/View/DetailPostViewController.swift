@@ -133,7 +133,7 @@ extension DetailPostViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         // Опциональная привязка, проверка на nil
         // TableViewCellForService – это ваш класс
-        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? DetailPostTableViewCell {
             UIView.animate(withDuration: 0.2) {
                 cell.curvedView.alpha = 0.4
             }
@@ -142,7 +142,7 @@ extension DetailPostViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         // Опциональная привязка, проверка на nil
         // TableViewCellForService – это ваш класс
-        if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? DetailPostTableViewCell {
             UIView.animate(withDuration: 0.2) {
                 cell.curvedView.alpha = 1
             }
