@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 
 fileprivate enum APIs {
@@ -31,63 +31,15 @@ protocol NetworkServiceProtocol {
     func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void)
     func getUser(id: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void)
     func getPost(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void)
+    func getUsers(completion: @escaping (Result<[User], Error>) -> Void)
 }
 
 class NetworkService : NetworkServiceProtocol {
     
     private let baseURL = "https://jsonplaceholder.typicode.com"
-    
-    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment], Error>) -> Void) {
-        let urlString = baseURL + APIs.comments
-        
-        guard let myUrl = URL(string: urlString) else { return }
-        var queryComponents = URLComponents(url: myUrl, resolvingAgainstBaseURL: true)
-        queryComponents?.queryItems = [ URLQueryItem(name: "postId", value: postId)]
-        guard let queryURL = queryComponents?.url else { return }
-        
-        getURLSession(with: queryURL, completionHandler: completionHandler)
-    }
-    
-    func getPost(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void) {
-        let urlString = baseURL + APIs.posts
-        guard let url = URL(string: urlString) else { return }
-        
-        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
-        guard let queryURL = queryComponents?.url else { return }
-        print(queryURL.absoluteString)
-        
-        getURLSession(with: url, completionHandler: completionHandler)
-    }
-    
-    func getPosts(completionHandler: @escaping (Result<[Post], Error>) -> Void) {
-        let urlString = baseURL + APIs.posts
-        guard let url = URL(string: urlString) else { return }
-        
-        getURLSession(with: url, completionHandler: completionHandler)
-    }
-    
-    func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void) {
-        let urlString = baseURL + APIs.users
-        guard let url = URL(string: urlString) else { return }
-        
-        postURLSession(url: url, data: user, complitionHandler: complitionHandler)
-    }
-    
-    func getUser(id: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void) {
-        let urlString = baseURL + APIs.users
-        guard let url = URL(string: urlString) else { return }
-        
-        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
-        guard let queryURL = queryComponents?.url else { return }
-        print(queryURL.absoluteString)
-        getURLSession(with: queryURL, completionHandler: compitionHandler)
-    }
-    
-    
 
-    private func postURLSession<T>(url: URL, data: T, complitionHandler: @escaping (Result<T, Error>) -> Void) where T: Codable {
+    //genetics
+    private func postURLSession<T: Codable>(url: URL, data: T, complitionHandler: @escaping (Result<T, Error>) -> Void){
         guard let sendData = try? JSONEncoder().encode(data) else { return }
         
         var request = URLRequest(url: url)
@@ -110,7 +62,7 @@ class NetworkService : NetworkServiceProtocol {
         }.resume()
     }
     
-    private func getURLSession<T>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void)  where T : Decodable {
+    private func getURLSession<T: Decodable>(with url: URL, completionHandler: @escaping (Result<[T], Error>) -> Void){
         
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             guard let data = data else { return }
@@ -118,8 +70,8 @@ class NetworkService : NetworkServiceProtocol {
                 completionHandler(.failure(error))
             } else {
                 do{
-                    let posts = try JSONDecoder().decode([T].self, from: data)
-                    completionHandler(.success(posts))
+                    let recievedData = try JSONDecoder().decode([T].self, from: data)
+                    completionHandler(.success(recievedData))
                 } catch {
                     debugPrint(error)
                     completionHandler(.failure(error))
@@ -127,32 +79,102 @@ class NetworkService : NetworkServiceProtocol {
             }
         }.resume()
     }
-    
-    //    func getPostWithUser(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void) {
-    //
-    //        let posts = [Post]()
-    //
-    //        let compareUserWithPost : (Result<[User], Error>) -> Void = { result in
-    //            switch result {
-    //            case .success(let users as! [User]):
-    //                var user = users[0]
-    //                posts[0].user = user
-    //                completionHandler(.success(posts))
-    //            case .failure(let error):
-    //                completionHandler(.failure(error))
-    //            }
-    //        }
-    //
-    //        self.getPost(id: id) { result in
-    //            switch result {
-    //            case .success(let recievedPosts):
-    //                posts = recievedPosts
-    //                self.getUser(userId: posts[0].userId, completionHandler: compareUserWithPost)
-    //            case .failure(let error):
-    //                completionHandler(.failure(error))
-    //            }
-    //        }
-    //    }
+}
+
+extension NetworkService {
+    func loadImage(id: Int, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let urlString = baseURL + APIs.photos
+        guard let url = URL(string: urlString) else { return }
+        
+        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
+        guard let queryURL = queryComponents?.url else { return }
+        
+        let task = URLSession.shared.dataTask(with: queryURL) { data, response, error in
+            if let data, let postImage = try? JSONDecoder().decode(PostImageModel.self, from: data) {
+                self.loadImageContent(url: postImage.url, completion: completion)
+            }
+        }
+        task.resume()
+    }
+
+    private func loadImageContent(url: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
+            if let error = error{
+                completion(.failure(error))
+            } else if let recievedData = data,
+                        let image = UIImage(data: recievedData){
+                completion(.success(image))
+            } else {
+                var errorTemp = NSError(domain: url, code: 0)
+                print(errorTemp.localizedDescription)
+                completion(.failure(errorTemp))
+            }
+        }
+        task.resume()
+    }
 }
 
 
+extension NetworkService {
+    //comments
+    func getComments(for postId: String, completionHandler: @escaping (Result<[Comment], Error>) -> Void) {
+        let urlString = baseURL + APIs.comments
+        
+        guard let myUrl = URL(string: urlString) else { return }
+        var queryComponents = URLComponents(url: myUrl, resolvingAgainstBaseURL: true)
+        queryComponents?.queryItems = [ URLQueryItem(name: "postId", value: postId)]
+        guard let queryURL = queryComponents?.url else { return }
+        
+        getURLSession(with: queryURL, completionHandler: completionHandler)
+    }
+}
+
+extension NetworkService {
+    //posts
+    func getPost(id: Int, completionHandler: @escaping (Result<[Post], Error>) -> Void) {
+        let urlString = baseURL + APIs.posts
+        guard let url = URL(string: urlString) else { return }
+        
+        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
+        guard let queryURL = queryComponents?.url else { return }
+        print(queryURL.absoluteString)
+        
+        getURLSession(with: url, completionHandler: completionHandler)
+    }
+    
+    func getPosts(completionHandler: @escaping (Result<[Post], Error>) -> Void) {
+        let urlString = baseURL + APIs.posts
+        guard let url = URL(string: urlString) else { return }
+        
+        getURLSession(with: url, completionHandler: completionHandler)
+    }
+}
+
+extension NetworkService {
+    //users
+    func getUsers(completion: @escaping (Result<[User], Error>) -> Void) {
+        let urlString = baseURL + APIs.users
+        guard let url = URL(string: urlString) else { return }
+        getURLSession(with: url, completionHandler: completion)
+    }
+    
+    func getUser(id: Int, compitionHandler: @escaping (Result<[User], Error>) -> Void) {
+        let urlString = baseURL + APIs.users
+        guard let url = URL(string: urlString) else { return }
+        
+        var queryComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        queryComponents?.queryItems = [ URLQueryItem(name: "id", value: "\(id)") ]
+        guard let queryURL = queryComponents?.url else { return }
+        
+        getURLSession(with: queryURL, completionHandler: compitionHandler)
+    }
+    
+    func postCreateUser(_ user: User, complitionHandler: @escaping (Result<User, Error>) -> Void) {
+        let urlString = baseURL + APIs.users
+        guard let url = URL(string: urlString) else { return }
+        
+        postURLSession(url: url, data: user, complitionHandler: complitionHandler)
+    }
+}

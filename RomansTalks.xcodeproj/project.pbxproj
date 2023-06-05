@@ -27,6 +27,7 @@
 		FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */; };
 		FF680BD829C0B62D001B1F8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */; };
 		FF680BDA29C0C64C001B1F8D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF680BD929C0C64C001B1F8D /* NetworkService.swift */; };
+		FF75ED182A2E184E00CCFF80 /* PostImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF75ED172A2E184E00CCFF80 /* PostImageModel.swift */; };
 		FF8894972A27B913000F6D8B /* PostsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8894962A27B913000F6D8B /* PostsNavigationController.swift */; };
 		FF88949A2A29FD76000F6D8B /* PostCurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8894992A29FD76000F6D8B /* PostCurvedView.swift */; };
 		FFA9880D29CF52AD0045F449 /* UITextField+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */; };
@@ -108,6 +109,7 @@
 		FF680BD529C0A53D001B1F8D /* PostsFlowModulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFlowModulesBuilder.swift; sourceTree = "<group>"; };
 		FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FF680BD929C0C64C001B1F8D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF75ED172A2E184E00CCFF80 /* PostImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageModel.swift; sourceTree = "<group>"; };
 		FF8894962A27B913000F6D8B /* PostsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNavigationController.swift; sourceTree = "<group>"; };
 		FF8894992A29FD76000F6D8B /* PostCurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCurvedView.swift; sourceTree = "<group>"; };
 		FFA9880C29CF52AD0045F449 /* UITextField+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toggle.swift"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				FF680BCF29C09D71001B1F8D /* PostModel.swift */,
+				FF75ED172A2E184E00CCFF80 /* PostImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				FF680BCE29C09D0E001B1F8D /* MainPresenter.swift in Sources */,
 				FFF0DCA429C7972000658190 /* LoginFlowBuilder.swift in Sources */,
 				FFF0DC9E29C7968E00658190 /* UserModel.swift in Sources */,
+				FF75ED182A2E184E00CCFF80 /* PostImageModel.swift in Sources */,
 				FFA9882429D07B3E0045F449 /* AdditionalInfoViewController.swift in Sources */,
 				FF680BD629C0A53D001B1F8D /* PostsFlowModulesBuilder.swift in Sources */,
 				FFA9882229D07B2D0045F449 /* AdditionalInfoPresenter.swift in Sources */,
