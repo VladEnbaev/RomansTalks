@@ -1,5 +1,5 @@
-
-My application that uses all the features of the https://jsonplaceholder.typicode.com.\ 
+# Romans Talks
+My application that uses the features of the API https://jsonplaceholder.typicode.com.<br>
 In fact, I'm making a full-fledged social network, but with a simple server part.
 
 
@@ -15,4 +15,6 @@ In fact, I'm making a full-fledged social network, but with a simple server part
 * URLSession, JSON. GET, POST requests
 * DispatchQueue, DispatchGroup
 
-
+## TODO 
+* New UI for Login FLow(the logic of work and the server part is already done)
+* Profile Screen and switchin from Home Screen to check the profile of other users
