@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SnapKit
 
 class MainTabBarController: UITabBarController{
     
@@ -50,9 +51,9 @@ extension MainTabBarController {
         setupAppearance()
         tabBar.clipsToBounds = true
         tabBar.barTintColor = R.Colors.background
-        tabBar.itemWidth = 60
+        tabBar.itemWidth = 30
+        tabBar.itemPositioning = .automatic
         tabBar.itemSpacing = 83
-        tabBar.itemPositioning = .centered
         tabBar.tintColor = R.Colors.orange
         tabBar.unselectedItemTintColor = R.Colors.unselected
     }

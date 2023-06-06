@@ -20,6 +20,9 @@ class MainViewController: UIViewController {
     
     let indicator = UIActivityIndicatorView(style: .large)
     var postsTableView = UITableView()
+    var notificationButton = UIBarButtonItem()
+    var moreButton = UIBarButtonItem()
+    
     var presenter : MainPresenterProrocol!
     
     var posts : [Post]?
@@ -32,6 +35,8 @@ class MainViewController: UIViewController {
         
         setupPostsTableView()
         setupNavigationBar()
+        setupMoreButton()
+        setupNotificationButton()
         
         constraintViews()
     }
@@ -92,6 +97,16 @@ extension MainViewController {
         let barItem = UIBarButtonItem(image: backIcon, style: .plain, target: nil, action: nil)
         barItem.tintColor = R.Colors.backArrowColor
         navigationItem.backBarButtonItem = barItem
+    }
+    
+    func setupMoreButton() {
+        moreButton.image = R.Images.Icons.seeMore.withRenderingMode(.alwaysOriginal)
+        navigationItem.leftBarButtonItem = moreButton
+    }
+    
+    func setupNotificationButton() {
+        notificationButton.image = R.Images.Icons.messages.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = notificationButton
     }
     
     func constraintViews() {

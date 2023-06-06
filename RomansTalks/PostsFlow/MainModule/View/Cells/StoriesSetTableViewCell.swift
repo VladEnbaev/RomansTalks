@@ -44,7 +44,7 @@ extension StoriesSetTableViewCell {
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.height.equalTo(Constants.size.rawValue)
+            make.height.equalTo(Constants.size.rawValue + 2 * Constants.insetHorizontal.rawValue)
         }
     }
 }

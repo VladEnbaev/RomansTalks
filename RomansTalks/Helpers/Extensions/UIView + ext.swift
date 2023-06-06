@@ -39,7 +39,7 @@ extension UIView {
             .touchCancel
         ])
     }
-
+    
     @objc func handleIn() {
         UIView.animate(withDuration: 0.15) { self.alpha = 0.55 }
     }

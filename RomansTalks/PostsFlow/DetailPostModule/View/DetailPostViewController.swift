@@ -20,14 +20,17 @@ class DetailPostViewController: UIViewController{
 
     let indicator = UIActivityIndicatorView(style: .large)
     var commentsTableView = UITableView()
+    var notificationButton = UIBarButtonItem()
     var post : Post?
     var comments : [Comment]?
+    
     weak var presenter: DetailPostPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createTableView()
         title = "Comments"
+        createTableView()
+        setupNotificationButton()
     }
     
 }
@@ -120,11 +123,7 @@ extension DetailPostViewController : UITableViewDataSource {
 
 }
 
-extension DetailPostViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
+extension DetailPostViewController : UITableViewDelegate {    
     func numberOfSections(in tableView: UITableView) -> Int {
         // Количество секций
         return 2
@@ -169,6 +168,11 @@ extension DetailPostViewController {
                                                   constant: -MainTabBarController.tabBarHeight).isActive = true
         commentsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         commentsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    }
+    
+    func setupNotificationButton() {
+        notificationButton.image = R.Images.Icons.messages.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = notificationButton
     }
 }
 

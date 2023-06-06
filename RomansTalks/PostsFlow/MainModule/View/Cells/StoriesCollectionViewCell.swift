@@ -33,6 +33,8 @@ class StoriesCollectionViewCell: UICollectionViewCell {
         imageView.layer.borderWidth = 4
         imageView.layer.borderColor = R.Colors.orange.cgColor
         
+        imageView.clipsToBounds = true
+        
         let borderLayer = CALayer()
         let borderSize = size - 3
         let borderFrame = CGRect(x: 1.5, y: 1.5, width: borderSize, height: borderSize)

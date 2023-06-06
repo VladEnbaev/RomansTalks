@@ -157,21 +157,21 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setupShareButton() {
-        shareButton = PostButton(title: "", image: R.Images.Icons.share)
+        shareButton.configure(title: "", image: R.Images.Icons.share)
         shareButton.makeSystem(shareButton)
     }
     
     func setupComentButton() {
-        commentsButton = PostButton(title: "5", image: R.Images.Icons.coment)
+        commentsButton.configure(title: "5", image: R.Images.Icons.coment)
         commentsButton.makeSystem(commentsButton)
     }
     
     func setupLikeButton() {
-        likesButton = PostButton(title: "0", image: R.Images.Icons.like)
+        likesButton.configure(title: "0", image: R.Images.Icons.like)
         likesButton.addTarget(self, action: #selector(didTappedLike), for: .allEvents)
-        likesButton.makeSystem(likesButton)
+        //likesButton.makeSystem(likesButton)
     }
     @objc func didTappedLike() {
-        likesButton.isOn = !likesButton.isOn
+        likesButton.isOn = !(likesButton.isOn)
     }
 }
