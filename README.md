@@ -1,20 +1,18 @@
-# RomansTalks
 
-My application that uses all the features of the https://jsonplaceholder.typicode.com . 
+My application that uses all the features of the https://jsonplaceholder.typicode.com.\ 
 In fact, I'm making a full-fledged social network, but with a simple server part.
 
 
+<img width="300" alt="Снимок экрана 2023-06-07 в 00 45 02" src="https://github.com/VladEnbaev/RomansTalks/assets/116029905/bd2bad7b-65d4-4db7-9ea4-f7983a41b12c">
 
-![Simulator Screenshot - iPhone 14 - 2023-06-06 at 21 54 21](https://github.com/VladEnbaev/RomansTalks/assets/116029905/9239a068-3f2e-429e-9635-41babcddf53a)
-![Simulator Screenshot - iPhone 14 - 2023-06-06 at 21 54 35](https://github.com/VladEnbaev/RomansTalks/assets/116029905/061acc2f-3fe7-4a08-9527-fb4131292ea0)
+<img width="300" alt="Снимок экрана 2023-06-07 в 00 53 28" src="https://github.com/VladEnbaev/RomansTalks/assets/116029905/156d3506-66eb-4bb3-b783-1c56871353a0">
 
 
-
-#Technologies used:
-Architecture: MVP + Coordinators
-Without storyboard or XIBs, layout with anchors and SnapKit
-Custom TabBar, cells, buttons
-URLSession, JSON. GET, POST requests
-DispatchQueue, DispatchGroup
+### Technologies used:
+* Architecture: MVP + Coordinators
+* Without storyboard or XIBs, layout with anchors and SnapKit
+* Custom TabBar, cells, buttons
+* URLSession, JSON. GET, POST requests
+* DispatchQueue, DispatchGroup
 
 
