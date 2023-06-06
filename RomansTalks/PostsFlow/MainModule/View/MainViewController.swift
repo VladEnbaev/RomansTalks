@@ -92,6 +92,7 @@ extension MainViewController {
         storiesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         storiesCollectionView.register(StoriesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
+        storiesCollectionView.backgroundColor = .black
         storiesCollectionView.dataSource = self
         storiesCollectionView.delegate = self
         storiesCollectionView.showsHorizontalScrollIndicator = false
@@ -116,9 +117,10 @@ extension MainViewController {
         
         view.addSubview(storiesCollectionView)
         storiesCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().inset(100)
-            make.height.equalTo(70)
+            make.leading.equalToSuperview()//.inset(PostTableViewCell.Constants.contentOffset.rawValue)
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview().inset(90)
+            make.height.equalTo(100)
         }
     }
 }
@@ -139,7 +141,8 @@ extension MainViewController : UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 70, height: 70)
+        let height = StoriesCollectionViewCell.Constants.size.rawValue + 2*StoriesCollectionViewCell.Constants.inset.rawValue
+        return CGSize(width: height, height: height)
     }
 }
 

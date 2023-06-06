@@ -9,12 +9,21 @@ import UIKit
 import SnapKit
 
 class StoriesCollectionViewCell: UICollectionViewCell {
-    // MARK: - Public
-    func configure(image: UIImage?) {
-        imageView.image = image
+    
+    enum Constants : CGFloat {
+        case size  = 70
+        case inset = 15
     }
+    
+    private let imageView: UIImageView = {
+        let view = UIImageView()
+        view.makeCornerRadius(radius: Constants.size.rawValue / 2)
+        view.layer.borderWidth = 3
+        view.layer.borderColor = R.Colors.orange.cgColor
+        return view
+    }()
 
-    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -24,11 +33,10 @@ class StoriesCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Private properties
-    private let imageView: UIImageView = {
-        let view = UIImageView()
-        return view
-    }()
+    
+    func configure(image: UIImage?) {
+        imageView.image = image
+    }
 }
 
 // MARK: - Private methods
@@ -36,8 +44,8 @@ private extension StoriesCollectionViewCell {
     func initialize() {
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.size.equalTo(60)
-            make.edges.equalToSuperview().inset(5)
+            make.height.width.equalTo(Constants.size.rawValue)
+            make.edges.equalToSuperview().inset(Constants.inset.rawValue)
         }
     }
 }
