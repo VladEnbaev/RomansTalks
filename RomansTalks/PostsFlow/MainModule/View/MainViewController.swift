@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
     
     let indicator = UIActivityIndicatorView(style: .large)
     var postsTableView = UITableView()
-    var storiesCollectionView : UICollectionView!
     var presenter : MainPresenterProrocol!
     
     var posts : [Post]?
@@ -32,7 +31,6 @@ class MainViewController: UIViewController {
         title = "Posts Feed"
         
         setupPostsTableView()
-        setupStroriesCollectionView()
         setupNavigationBar()
         
         constraintViews()
@@ -46,7 +44,7 @@ extension MainViewController : MainViewProtocol {
     }
     func success(with images: [UIImage]) {
         self.images = images
-        self.storiesCollectionView.reloadData()
+        self.postsTableView.reloadData()
     }
     
     func failure(error: Error) {
@@ -81,23 +79,13 @@ extension MainViewController {
         //table view
         postsTableView.dataSource = self
         postsTableView.delegate = self
-        postsTableView.register(PostTableViewCell.self, forCellReuseIdentifier: Resources.Identifiers.postCellID)
+        postsTableView.register(PostTableViewCell.self,
+                                forCellReuseIdentifier: Resources.Identifiers.postCellID)
+        postsTableView.register(SetStoriesTableViewCell.self,
+                                forCellReuseIdentifier: Resources.Identifiers.storiesSetCellID)
         
         postsTableView.separatorStyle = .none
     }
-    
-    func setupStroriesCollectionView() {
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.scrollDirection = .horizontal
-        storiesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        storiesCollectionView.register(StoriesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
-        storiesCollectionView.backgroundColor = .black
-        storiesCollectionView.dataSource = self
-        storiesCollectionView.delegate = self
-        storiesCollectionView.showsHorizontalScrollIndicator = false
-    }
-    
     
     func setupNavigationBar() {
         let backIcon = R.Images.Icons.back
@@ -109,59 +97,35 @@ extension MainViewController {
     func constraintViews() {
         view.addSubview(postsTableView)
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
-        postsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: 0).isActive = true
+        postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         postsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         postsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        
-        view.addSubview(storiesCollectionView)
-        storiesCollectionView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()//.inset(PostTableViewCell.Constants.contentOffset.rawValue)
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview().inset(90)
-            make.height.equalTo(100)
-        }
     }
 }
-
-// MARK: - UICollectionViewDataSource
-extension MainViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images?.count ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! StoriesCollectionViewCell
-        cell.configure(image: (images?[indexPath.item] ?? UIImage()) )
-        return cell
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = StoriesCollectionViewCell.Constants.size.rawValue + 2*StoriesCollectionViewCell.Constants.inset.rawValue
-        return CGSize(width: height, height: height)
-    }
-}
-
-
 //MARK: -UITableViewDataSource
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts?.count ?? 0
+        return 1 + (self.posts?.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.postCellID) as? PostTableViewCell,
-           let presenterPosts = self.posts{
-            cell.configure(with: presenterPosts[indexPath.row])
-            return cell
+        if indexPath.row == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.storiesSetCellID)
+                as? SetStoriesTableViewCell, let images = images {
+                
+                cell.configure(with: images)
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.postCellID)
+                as? PostTableViewCell, let presenterPosts = self.posts{
+                
+                cell.configure(with: presenterPosts[indexPath.row - 1])
+                return cell
+            }
         }
         return UITableViewCell()
-        
     }
 }
 

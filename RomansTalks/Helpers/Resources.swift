@@ -15,6 +15,7 @@ enum Resources {
         static let postCellID = "PostCellReuseIdentifier"
         static let detailPostCellID = "DetailPostCellReuseIdentifier"
         static let commentCellID = "CommentCellReuseIdentifier"
+        static let storiesSetCellID = "StoriesSetCellReuseIdentifier"
     }
     enum ErrorTexts {
         static let usernameEmpty = "username is empty"
