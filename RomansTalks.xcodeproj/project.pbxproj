@@ -39,7 +39,7 @@
 		FFD38D7F29F0390400AF8F91 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */; };
 		FFD38D8129F0391400AF8F91 /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */; };
 		FFE3EBE22A2E9D4E00F94A92 /* StoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE3EBE12A2E9D4E00F94A92 /* StoriesCollectionViewCell.swift */; };
-		FFE3EBE52A2F4E9B00F94A92 /* SetStoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE3EBE42A2F4E9B00F94A92 /* SetStoriesTableViewCell.swift */; };
+		FFE3EBE52A2F4E9B00F94A92 /* StoriesSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE3EBE42A2F4E9B00F94A92 /* StoriesSetTableViewCell.swift */; };
 		FFE5BAF42A16AE23005EADB7 /* UIImage + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */; };
 		FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */; };
 		FFF0DC7D29C4EF9200658190 /* DetailPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */; };
@@ -123,7 +123,7 @@
 		FFD38D7E29F0390400AF8F91 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FFD38D8029F0391400AF8F91 /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
 		FFE3EBE12A2E9D4E00F94A92 /* StoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionViewCell.swift; sourceTree = "<group>"; };
-		FFE3EBE42A2F4E9B00F94A92 /* SetStoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStoriesTableViewCell.swift; sourceTree = "<group>"; };
+		FFE3EBE42A2F4E9B00F94A92 /* StoriesSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesSetTableViewCell.swift; sourceTree = "<group>"; };
 		FFE5BAF32A16AE23005EADB7 /* UIImage + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + ext.swift"; sourceTree = "<group>"; };
 		FFF0DC7A29C4EF7300658190 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		FFF0DC7C29C4EF9200658190 /* DetailPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostPresenter.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		FFA9881629CF7E4C0045F449 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FFE3EBE42A2F4E9B00F94A92 /* SetStoriesTableViewCell.swift */,
+				FFE3EBE42A2F4E9B00F94A92 /* StoriesSetTableViewCell.swift */,
 				FFE3EBE12A2E9D4E00F94A92 /* StoriesCollectionViewCell.swift */,
 				FF680BD729C0B62D001B1F8D /* PostTableViewCell.swift */,
 			);
@@ -873,7 +873,7 @@
 				FFF0DCA229C796D200658190 /* WelcomeViewController.swift in Sources */,
 				FFF0DC7B29C4EF7300658190 /* DetailPostViewController.swift in Sources */,
 				FF5774292A13BB72008582F3 /* UIColor + ext.swift in Sources */,
-				FFE3EBE52A2F4E9B00F94A92 /* SetStoriesTableViewCell.swift in Sources */,
+				FFE3EBE52A2F4E9B00F94A92 /* StoriesSetTableViewCell.swift in Sources */,
 				FFF0DC8A29C70D2E00658190 /* PostsFeedFlowCoordinator.swift in Sources */,
 				FF680BA029C09CCE001B1F8D /* SceneDelegate.swift in Sources */,
 				FFF43AE629F07D9100342DF1 /* MainTabBarController.swift in Sources */,

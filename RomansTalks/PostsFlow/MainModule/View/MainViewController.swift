@@ -81,7 +81,7 @@ extension MainViewController {
         postsTableView.delegate = self
         postsTableView.register(PostTableViewCell.self,
                                 forCellReuseIdentifier: Resources.Identifiers.postCellID)
-        postsTableView.register(SetStoriesTableViewCell.self,
+        postsTableView.register(StoriesSetTableViewCell.self,
                                 forCellReuseIdentifier: Resources.Identifiers.storiesSetCellID)
         
         postsTableView.separatorStyle = .none
@@ -112,7 +112,7 @@ extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: Resources.Identifiers.storiesSetCellID)
-                as? SetStoriesTableViewCell, let images = images {
+                as? StoriesSetTableViewCell, let images = images {
                 
                 cell.configure(with: images)
                 return cell

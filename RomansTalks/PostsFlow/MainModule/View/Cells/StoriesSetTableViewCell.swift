@@ -7,16 +7,15 @@
 
 import UIKit
 
-class SetStoriesTableViewCell: UITableViewCell {
+class StoriesSetTableViewCell: UITableViewCell {
 
     var images : [UIImage]?
     var collectionView : UICollectionView!
     
-    var collectionViewHeight : CGFloat {
-        return StoriesCollectionViewCell.Constants.size.rawValue + 2*StoriesCollectionViewCell.Constants.insetHorizontal.rawValue
-    }
-    var cellWidth : CGFloat {
-        return StoriesCollectionViewCell.Constants.size.rawValue + 2*StoriesCollectionViewCell.Constants.insetVertical.rawValue
+    enum Constants : CGFloat {
+        case size  = 70
+        case insetHorizontal = 10
+        case insetVertical = 15
     }
     
     func configure(with images: [UIImage]) {
@@ -26,7 +25,7 @@ class SetStoriesTableViewCell: UITableViewCell {
     }
 }
 
-extension SetStoriesTableViewCell {
+extension StoriesSetTableViewCell {
     
     func setupStroriesCollectionView() {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -45,27 +44,37 @@ extension SetStoriesTableViewCell {
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.height.equalTo(collectionViewHeight)
+            make.height.equalTo(Constants.size.rawValue)
         }
     }
 }
 
 // MARK: - UICollectionViewDataSource
-extension SetStoriesTableViewCell : UICollectionViewDataSource {
+extension StoriesSetTableViewCell : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images?.count ?? 0
+        return (images?.count ?? 0) + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! StoriesCollectionViewCell
-        cell.configure(image: (images?[indexPath.item] ?? UIImage()) )
+        if indexPath.row == 0 {
+            cell.configure(image: R.Images.Photos.none, isFirst: true)
+        } else {
+            cell.configure(image: (images?[indexPath.row - 1] ?? UIImage()), isFirst: false )
+        }
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension SetStoriesTableViewCell: UICollectionViewDelegateFlowLayout {
+extension StoriesSetTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cellWidth, height: collectionViewHeight)
+        return CGSize(width: Constants.size.rawValue, height: Constants.size.rawValue)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: Constants.insetHorizontal.rawValue,
+                            left: Constants.insetVertical.rawValue,
+                            bottom: Constants.insetHorizontal.rawValue,
+                            right: Constants.insetVertical.rawValue)
     }
 }

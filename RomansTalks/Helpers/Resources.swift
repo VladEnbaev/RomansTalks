@@ -47,6 +47,7 @@ enum Resources {
             static let back = UIImage(named: "backButtonIcon") ?? UIImage()
             static let seeMore = UIImage(named: "seeMoreIcon") ?? UIImage()
             static let messages = UIImage(named: "dmIcon") ?? UIImage()
+            static let addNewStoryIcon = UIImage(named: "addNewStoryIcon") ?? UIImage()
             
             enum TabBar {
                 static let addPhoto = UIImage(named: "addPhotoIcon") ?? UIImage()
