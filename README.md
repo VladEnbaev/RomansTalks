@@ -15,6 +15,11 @@ In fact, I'm making a full-fledged social network, but with a simple server part
 * URLSession, JSON. GET, POST requests
 * DispatchQueue, DispatchGroup
 
-## TODO 
+### What's done:
+* Fully built architecture that conforms to the principles of OOP and SOLID, based on protocols, coordinators and builders.
+* Requests to the server for information about users, posts, comments and uploading images to Stories CollecctionView
+* The logic of transitions between screens in login flow, home flow and profile flow
+
+### TODO 
 * New UI for Login FLow(the logic of work and the server part is already done)
 * Profile Screen and switchin from Home Screen to check the profile of other users
