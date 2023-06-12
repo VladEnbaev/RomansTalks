@@ -48,5 +48,4 @@ class LoginFlowCoordinator : LoginFlowCoordinatorProtocol {
         navigationController.pushViewController(registrationModule, animated: true)
     }
     
-    
 }

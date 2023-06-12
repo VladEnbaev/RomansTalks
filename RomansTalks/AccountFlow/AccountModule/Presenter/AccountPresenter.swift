@@ -33,5 +33,4 @@ class AccountPresenter: AccountPresenterProtocol {
             view?.showAlert(text: "")
         }
     }
-    
 }

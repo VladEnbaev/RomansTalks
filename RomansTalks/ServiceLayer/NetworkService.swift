@@ -39,7 +39,7 @@ class NetworkService : NetworkServiceProtocol {
     
     private let baseURL = "https://jsonplaceholder.typicode.com"
 
-    //genetics
+    //generics
     private func postURLSession<T: Codable>(url: URL, data: T, complitionHandler: @escaping (Result<T, Error>) -> Void){
         guard let sendData = try? JSONEncoder().encode(data) else { return }
         
