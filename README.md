@@ -8,6 +8,7 @@ In fact, I'm making a full-fledged social network, but with a simple server part
 * Custom TabBar, cells, buttons
 * URLSession, JSON. GET, POST requests
 * DispatchQueue, DispatchGroup
+* Dependency injection
 * Designed in Figma
 
 ### What's done:
